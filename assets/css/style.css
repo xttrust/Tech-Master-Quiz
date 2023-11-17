@@ -1,0 +1,40 @@
+/* Import Fonts from Google: Montserrat and Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+/* Reset */
+:root {
+    --clr-pink: #b86ad9;
+    --clr-primary: #383e6e;
+    --clr-dark: #1e2140;
+    --clr-blue: #3d9df2;
+    --clr-tan: #f2e0bd;
+    --clr-red: #f00909;
+    --clr-green: #09e73e;
+    --clr-white: #ffffff;
+    --box-shadow: rgba(0, 0, 0, 0.35) 0 0.5rem 1.5rem;
+    --box-shadow-hover: rgba(3, 102, 214, 0.3) 0 0 0 3px;
+    /* By setting the font size here to 62.5 we reset the rem. Now 1rem = 10px */
+    font-size: 62.5%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    min-height: 100vh;
+    font-size: 1.6rem;
+    color: var(--clr-white);
+    /* The background gradient was generated here 
+    * https://mycolor.space/gradient?ori=to+right+top&hex=%23B86AD9&hex2=%231E2140&sub=1 */
+    background-color: var(--clr-dark);
+    background-image: linear-gradient(to right top, #b86ad9, #885ab5, #5d488e, #3a3567, #1e2140);
+    font-family: "Montserrat", sans-serif;
+}
