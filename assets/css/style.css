@@ -17,7 +17,9 @@
     font-size: 62.5%;
 }
 
-* {
+*,
+*::before,
+*::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -26,6 +28,20 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+    font-family: "Montserrat", sans-serif;
+    /* Credits for this normalize 
+    * https://gist.github.com/marharyta/b83a3683085eb42867bbcefb34687af8 */
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+    /* End Credits */
+}
+
+/* IE10+ doesn't honor `<meta name="viewport">` in some cases. */
+@-ms-viewport {
+    width: device-width;
 }
 
 body {
@@ -36,5 +52,4 @@ body {
     * https://mycolor.space/gradient?ori=to+right+top&hex=%23B86AD9&hex2=%231E2140&sub=1 */
     background-color: var(--clr-dark);
     background-image: linear-gradient(to right top, #b86ad9, #885ab5, #5d488e, #3a3567, #1e2140);
-    font-family: "Montserrat", sans-serif;
 }
