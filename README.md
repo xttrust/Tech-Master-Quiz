@@ -106,9 +106,6 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 - Quiz Creation:
   - The system should allow administrators to create quizzes with multiple-choice questions.
 
-- Quiz Categories:
-  - Quizzes should be categorized based on different topics such as programming, hardware, software, etc.
-
 - User Progress Tracking:
   - The platform should track and display users' quiz scores and progress over time.
 
@@ -135,11 +132,29 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 
 ### Expectations
 
-- I expect all links to social media sites to be opened in a new tab.
-- I expect all navigation links to work correctly.
-- I expect screen size not to affect the quality of the website.
-- I expect all information to be correct and accurate.
+- User Expectations:
+  - Users anticipate a seamless and intuitive registration process, allowing them to easily create an account with a unique username.
 
+- Platform Accessibility:
+  - Users expect the platform to be accessible on various devices, ensuring a consistent and user-friendly experience, whether on desktop or mobile.
+
+- Engaging Quiz Content:
+  - Users look forward to diverse and high-quality quiz content, covering a range of topics within the field of technology.
+
+- Immediate Feedback:
+  - Users anticipate immediate feedback on quiz questions, with clear explanations for correct and incorrect answers, enhancing the learning experience.
+
+- Progress Tracking:
+  - Users expect the platform to track and display their quiz scores and progress over time, allowing them to see improvements and set personal goals.
+
+- Social Interaction:
+  - Users want the option to share their quiz results on social media platforms, as well as the ability to challenge and compete with friends.
+
+- Intuitive User Interface:
+  - Users anticipate a user-friendly and visually appealing interface that is easy to navigate, contributing to an enjoyable overall experience.
+
+- Community Engagement:
+  
 \
 &nbsp;
 [Back to Top](#table-of-contents)
