@@ -53,10 +53,10 @@
         <!-- End home-text -->
 
         <!-- Start select-username -->
-        <section id="select-username">
-            <div class="wrapper">
-                <form action="quiz.html" method="get" id="username-form">
-
+        <section id="start-game">
+            <!-- Start start-game-wrapper -->
+            <div class="wrapper" id="start-game-wrapper">
+                <form action="#start-game" method="get" id="start-game-form">
                     <label for="dificulty">Select Dificulty</label>
                     <select name="dificulty" id="dificulty">
                         <option value="easy">Easy</option>
@@ -70,8 +70,12 @@
                     <button class="button d-block" type="submit" id="start" name="start" value="start">
                         Start
                     </button>
-
                 </form>
+            </div>
+            <!-- End start-game-wrapper -->
+
+            <div class="wrapper" id="game-content-wrapper">
+
             </div>
         </section>
         <!-- End select-username -->
