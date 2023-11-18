@@ -23,11 +23,47 @@
 </head>
 
 <body>
-    <header class=""></header>
-    <main class=""></main>
-    <footer class="">
+
+    <!-- Start Header -->
+    <header>
+        <img src="assets/images/logo.png" alt="TechMasterQuiz Logo">
+        <h1>TechMasterQuiz</h1>
+    </header>
+    <!-- End Header -->
+
+    <!-- Start Main -->
+    <main>
+        <!-- Start home-text -->
+        <section id="home-text">
+            <div class="text-wrapper">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Voluptatibus ea expedita libero dolores optio unde
+                    repellat ullam iure hic voluptate eaque ab, eveniet
+                    fugiat odit incidunt. Minus perspiciatis suscipit exercitationem!
+                </p>
+            </div>
+        </section>
+        <!-- End home-text -->
+
+        <!-- Start select-username -->
+        <section id="select-username">
+            <form action="quiz.html" method="get" id="username-form">
+                <label for="username">Enter your username</label>
+                <input type="text" name="username" id="username" placeholder="Enter your username" required />
+                <button class="button" type="submit" id="start" name="start" value="start">
+                    Start
+                </button>
+            </form>
+        </section>
+        <!-- End select-username -->
+    </main>
+    <!-- End Main -->
+
+    <!-- Start Footer -->
+    <footer>
         <p>by Florin Pinta - For educational purpose only</p>
     </footer>
+    <!-- End Footer -->
 
     <script src="assets/js/script.js"></script>
 </body>
