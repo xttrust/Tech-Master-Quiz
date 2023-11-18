@@ -59,7 +59,9 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
   - Users could be looking for an engaging and interactive way to learn about computers.
 - Enjoy a Relaxing Break
   - Some users may use the quiz as a way to take a break and unwind.
-  
+
+[Back to Top](#table-of-contents)
+
 ## User Stories
 
 - As a learner, I want to have access to a variety of quizzes covering different topics in technology, so that I can expand my knowledge in specific areas of interest.
@@ -75,6 +77,8 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 - As a user, I want to be able to make contact with the website via several different methods, i.e. social media.
 
 - As a casual user, I want the quiz platform to have a visually appealing and user-friendly design, so that I can navigate through the questions easily and enjoy a pleasant experience.
+
+[Back to Top](#table-of-contents)
 
 ## Site owners Goals
 
@@ -97,6 +101,8 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
   - Provide high-quality and diverse quiz content to keep users engaged.
 
 - Increase rankings on search engines.
+
+[Back to Top](#table-of-contents)
 
 ### Requirements
 
@@ -130,6 +136,8 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 - Monetization:
   - If applicable, the system should support monetization strategies, such as advertisements or premium features.
 
+[Back to Top](#table-of-contents)
+
 ### Expectations
 
 - User Expectations:
@@ -155,8 +163,59 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 
 - Community Engagement:
   
-\
-&nbsp;
 [Back to Top](#table-of-contents)
-\
-&nbsp;
+
+## Design Choices
+
+### Fonts
+
+While choosing the fonts for website I have searched on Google for the best fonts to use in 2023. And so I've integrated [Google Fonts](https://fonts.google.com/ "Google Fonts") to find a typeface that complements the website's aesthetic. For the main text, I've opted for [Montserrat](https://fonts.google.com/specimen/Montserrat?query=mon "Montserrat font"). To distinguesh the headers from the rest of the font I have selected [Roboto](https://fonts.google.com/specimen/Roboto?query=mon "Roboto font")
+
+### Icons
+
+As for icons I decided to use for my website [Font Awesome library](https://fontawesome.com/ "Font Awesome").
+
+### Colors
+
+When I selected the colors for the website I had in mind tech and colorfull. So I went on pinterest.com and searched for colorfull projects. I've have selected an image from there. After that, using a collor picker I have manualy created a new set of collors using [Colorcombos](https://www.colorcombos.com/combomaker.html?design=cupcakes&output_width=100&size_option=element&colors=B86AD9,383E6E,1E2140,3D9DF2,F2E0BD,F00909,09E73E,FFFFFF&background_color=FFFFFF&show_hex_flag=Y "colorcombos")
+
+I will explain the uses of the various colors below, starting from top to bottom.
+
+![Colors Pallet](wireframes/colors.png)
+
+- clr-pink: #b86ad9 - This color will be used for buttons, links, borders, headers and hovers.
+- clr-primary: #383e6e - This color will be used for section backgrounds and for body background pallete
+- clr-dark: #1e2140 - This collor will be used for body background pallete
+- clr-blue: #3d9df2 - This collor will be used for buttons and links
+- clr-tan: #f2e0bd - This color will be used for links in the footer and for icons
+- clr-red: #f00909 - This color will be used to display the wrong answers
+- clr-green: #09e73e - This color will be used to display the correct answers
+- clr-white: #ffffff - This color will be used for text
+
+### Structure
+
+The website will follow a mobile-first strategy, the main target is to create a visually appealing design for smaller screens. As for the smallest design I chose Samsung Galaxy S8 and iPhone 5. Target resolution is 320px. To ensure responsiveness, I'll rely on the predefined screen size breakpoints provided by [Bootstrap](https://getbootstrap.com/docs/5.0/layout/breakpoints/ "Bootstrap").
+
+| Screen Size | Breakpoint |
+| ----------- | ---------- |
+| x-small     | <576px     |
+| small       | => 576px   |
+| medium      | => 768px   |
+| large       | => 992px   |
+| x-large     | => 1200px  |
+
+[Back to Top](#table-of-contents)
+
+# Wireframes
+
+For wireframing to vissually structuire and play the layout and design of the website I have selected [Balsamic](https://balsamiq.com/wireframes/ "Balsamic"). aiming to provide a user-friendly experience and maintain design consistency across different devices.
+
+The wireframes are below:
+
+## [Desktop Wireframe](wireframes/layout-desktop.png "Desktop wireframe")
+
+## [Tablet Wireframe](wireframes/layout-tablet.png "Tablet wireframe")
+
+## [Phone Wireframe](wireframes/layout-mobile.png "Phone wireframe")
+
+[Back to Top](#table-of-contents)
