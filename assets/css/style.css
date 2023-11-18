@@ -11,8 +11,8 @@
     --clr-red: #f00909;
     --clr-green: #09e73e;
     --clr-white: #ffffff;
-    --box-shadow: rgba(0, 0, 0, 0.35) 0 0.5rem 1.5rem;
-    --box-shadow-hover: rgba(3, 102, 214, 0.3) 0 0 0 3px;
+    --box-shadow: rgba(30, 33, 64, 1) 0 0.5rem 1.5rem;
+    --box-shadow-hover: rgba(184, 106, 217, 1) 0 0.5rem 1rem;
     /* By setting the font size here to 62.5 we reset the rem. Now 1rem = 10px */
     font-size: 62.5%;
 }
@@ -64,6 +64,18 @@ h5,
 h6 {
     font-family: "Roboto", sans-serif;
     font-weight: 700;
+    color: var(--clr-tan);
+    margin: 1rem;
+}
+
+ul {
+    list-style-type: disc;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+ul li {
+    padding: 3px;
 }
 
 p {
@@ -74,38 +86,93 @@ p {
     padding: 1rem 0;
 }
 
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 1rem 2rem;
+    margin: 1rem 0;
+    display: inline-block;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    border-radius: 2rem;
+}
+
+/* Standard classes */
+.wrapper {
+    margin: 2rem;
+    padding: 1.5rem;
+    background-color: var(--clr-primary);
+    border-radius: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: all 1s ease;
+}
+
+.wrapper:hover {
+    box-shadow: var(--box-shadow-hover);
+}
+
+.button {
+    padding: 1rem;
+    border: 0;
+    border-radius: 2rem;
+    background-color: var(--clr-pink);
+    color: var(--clr-tan);
+    cursor: pointer;
+    transition: all 1s ease;
+    font-weight: 700;
+}
+
+.button:hover {
+    background-color: var(--clr-blue);
+    color: var(--color-light);
+}
+
+.d-block {
+    width: 100%;
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
+
 /* Logo */
 #logo-img {
-    width: 15rem;
+    width: 5rem;
     height: auto;
-    margin: 2rem auto;
+    margin: 3rem auto;
     display: block;
 }
 
 #logo-text {
     font-family: "Roboto";
     font-weight: 700;
-    line-height: 3rem;
-    margin: 2rem;
+    margin: 1rem;
     text-align: center;
-    display: block;
+    display: block;    font-size: 2.6rem;
 }
 
 /* Main */
 main {
     flex: 1 0 auto;
-    margin-top: 5rem;
     display: flex;
     flex-direction: column;
 }
+
+/* home-text*/
+#how-to-play {
+    height: auto;
+}
+
 
 /* Footer */
 footer {
     display: block;
     width: 100%;
     height: auto;
-    border-top: 1px solid var(--clr-tan);
     margin-top: 4rem;
+    background-color: var(--clr-dark);
 }
 
 #footer-text {

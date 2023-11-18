@@ -34,26 +34,43 @@
     <!-- Start Main -->
     <main>
         <!-- Start home-text -->
-        <section id="home-text">
-            <div class="text-wrapper">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Voluptatibus ea expedita libero dolores optio unde
-                    repellat ullam iure hic voluptate eaque ab, eveniet
-                    fugiat odit incidunt. Minus perspiciatis suscipit exercitationem!
-                </p>
+        <section id="how-to-play">
+            <div class="wrapper">
+                <h3 class="text-center">How to play</h3>
+                <ul>
+                    <li>Select the dificulty level</li>
+                    <li>Enter your desired username</li>
+                    <li>The quiz has 10 questions</li>
+                    <li>Click on your chosen answer to move onto the next question</li>
+                    <li>
+                        You will see your score and track your progress in real-time as you advance through the quiz.
+                    </li>
+                </ul>
             </div>
         </section>
         <!-- End home-text -->
 
         <!-- Start select-username -->
         <section id="select-username">
-            <form action="quiz.html" method="get" id="username-form">
-                <label for="username">Enter your username</label>
-                <input type="text" name="username" id="username" placeholder="Enter your username" required />
-                <button class="button" type="submit" id="start" name="start" value="start">
-                    Start
-                </button>
-            </form>
+            <div class="wrapper">
+                <form action="quiz.html" method="get" id="username-form">
+
+                    <label for="dificulty">Select Dificulty</label>
+                    <select name="dificulty" id="dificulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+
+                    <label for="username">Enter your username</label>
+                    <input type="text" name="username" id="username" placeholder="Enter your username" required />
+
+                    <button class="button d-block" type="submit" id="start" name="start" value="start">
+                        Start
+                    </button>
+
+                </form>
+            </div>
         </section>
         <!-- End select-username -->
     </main>
