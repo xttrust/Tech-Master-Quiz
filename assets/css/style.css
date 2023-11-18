@@ -75,7 +75,7 @@ ul {
 }
 
 ul li {
-    padding: 3px;
+    padding: 5px;
 }
 
 p {
@@ -158,7 +158,7 @@ header {
 #logo-text {
     font-family: "Roboto";
     font-weight: 700;
-    margin: 1rem;
+    margin-top: 3rem;
     text-align: center;
     display: block;
     font-size: 2.6rem;
