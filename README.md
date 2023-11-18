@@ -42,3 +42,57 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 - [Deployment](#deployment)
 - [Refactor](#refactor)
 - [Credits](#credits)
+
+# UX
+
+## User Requirements and Expectations
+
+## User Goals
+
+- Test and improve knowledge:
+  - Users may aim to test their current knowledge of computer-realted topics.
+  - Users may want to improve their understanding of specific areas within the field of technology.
+- Compete and Challange:
+  - Users might seek the thrill of competition and challenge, trying to achieve high scores or compete against others.
+  - Users might want to share their quiz results on social media or challenge their friends to beat their scores.
+- Learn in an Engaging Way:
+  - Users could be looking for an engaging and interactive way to learn about computers.
+- Enjoy a Relaxing Break
+  - Some users may use the quiz as a way to take a break and unwind.
+  
+## User Stories
+
+- As a learner, I want to have access to a variety of quizzes covering different topics in technology, so that I can expand my knowledge in specific areas of interest.
+- As a quiz enthusiast, I want to easily sign in with my username so that I can track my progress and see personalized content based on my preferences.
+- As a user looking for a quick break, I want to be able to start a short quiz without having to go through a lengthy sign-up process, so that I can enjoy a quick and fun diversion.
+- As a social user, I want the option to share my quiz results on social media and challenge my friends, so that I can engage with others and showcase my achievements.
+- As a returning user, I want to see my previous quiz results and track my improvement over time, so that I can gauge my progress and set personal goals.
+- As a user, I want to be able to make contact with the website via several different methods, i.e. social media.
+- As a casual user, I want the quiz platform to have a visually appealing and user-friendly design, so that I can navigate through the questions easily and enjoy a pleasant experience.
+
+## Site owners Goals
+
+- Attract more visitors to Romania.
+- Inform visitors about Romania's history, culture and cuisine.
+- Inform visitors about the top attractions to visit.
+- Increase rankings on search engines.
+
+### Requirements
+
+- Easy to navigate on various screen sizes.
+- Clear and precise information about Romania.
+- Simple method of contacting the website.
+- Visually appealing design.
+
+### Expectations
+
+- I expect all links to social media sites to be opened in a new tab.
+- I expect all navigation links to work correctly.
+- I expect screen size not to affect the quality of the website.
+- I expect all information to be correct and accurate.
+
+\
+&nbsp;
+[Back to Top](#table-of-contents)
+\
+&nbsp;
