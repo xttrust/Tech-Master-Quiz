@@ -8,7 +8,7 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 
 ![TechMasterQuiz Multiview image](https://placehold.co/1200x600?text=TechMasterQuiz+Multiview)
 
-# Table of Contents
+## Table of Contents
 
 - [UX](#ux "UX")
   - [User Goals](#user-goals "User Goals")
@@ -43,11 +43,11 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 - [Refactor](#refactor)
 - [Credits](#credits)
 
-# UX
+## UX
 
-## User Requirements and Expectations
+### User Requirements and Expectations
 
-## User Goals
+### User Goals
 
 - Test and improve knowledge:
   - Users may aim to test their current knowledge of computer-realted topics.
@@ -62,7 +62,7 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 
 [Back to Top](#table-of-contents)
 
-## User Stories
+### User Stories
 
 - As a learner, I want to have access to a variety of quizzes covering different topics in technology, so that I can expand my knowledge in specific areas of interest.
 
@@ -80,7 +80,7 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 
 [Back to Top](#table-of-contents)
 
-## Site owners Goals
+### Site owners Goals
 
 - Increase User Engagement
   - Increase the average time users spend on the platform.
@@ -206,16 +206,16 @@ The website will follow a mobile-first strategy, the main target is to create a 
 
 [Back to Top](#table-of-contents)
 
-# Wireframes
+## Wireframes
 
 For wireframing to vissually structuire and play the layout and design of the website I have selected [Balsamic](https://balsamiq.com/wireframes/ "Balsamic"). aiming to provide a user-friendly experience and maintain design consistency across different devices.
 
 The wireframes are below:
 
-## [Desktop Wireframe](wireframes/layout-desktop.png "Desktop wireframe")
+### [Desktop Wireframe](wireframes/layout-desktop.png "Desktop wireframe")
 
-## [Tablet Wireframe](wireframes/layout-tablet.png "Tablet wireframe")
+### [Tablet Wireframe](wireframes/layout-tablet.png "Tablet wireframe")
 
-## [Phone Wireframe](wireframes/layout-mobile.png "Phone wireframe")
+### [Phone Wireframe](wireframes/layout-mobile.png "Phone wireframe")
 
 [Back to Top](#table-of-contents)
