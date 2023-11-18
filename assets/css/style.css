@@ -53,3 +53,19 @@ body {
     background-color: var(--clr-dark);
     background-image: linear-gradient(to right top, #b86ad9, #885ab5, #5d488e, #3a3567, #1e2140);
 }
+
+#logo-img {
+    width: 15rem;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+}
+
+#logo-text {
+    font-family: "Roboto";
+    font-weight: 700;
+    line-height: 3rem;
+    margin: 2rem;
+    text-align: center;
+    display: block;
+}
