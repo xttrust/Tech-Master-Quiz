@@ -275,9 +275,9 @@ The wireframes are below:
 
 - When testing on Google Chrome mobile version I didn't like the default browser theme color so I've customized the browser's theme color to match the website's theme, ensuring that everything looks just the way I prefer it.
 
-```
+`
 <meta name="theme-color" content="#1e2140">
-```
+`
 
 - Using Mobile Simulator extension in Google Chrome I have tested the website on differite devices. Test results are listed below.
 
@@ -299,6 +299,8 @@ The wireframes are below:
 ## Bugs
 
 - There are no bugs to fix in the final project
+
+## Unfixed Bugs
 
 [Back to Top](#table-of-contents)
 
