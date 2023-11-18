@@ -25,14 +25,9 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 - [Wireframes](#wireframes)
   - [Features](#features)
     - [Navigation Bar](#navigation-bar)
-    - [Welcome Section](#welcome-section)
-    - [History Section](#history-section)
-    - [Culture Section](#culture-section)
-    - [Attraction Section](#attraction-section)
-    - [Cuisine Section](#cuisine-section)
-    - [Contact Section](#contact-section)
+    - [Welcome Page](#welcome-page)
+    - [Game Page](#game-page)
     - [Footer](#footer)
-    - [Thank You Page](#thank-you-page-form-submision-page)
     - [Features to be implemented](#features-to-be-implemented)
 - [Technologies used](#technologies-used)
   - [Languages](#languages)
@@ -217,5 +212,116 @@ The wireframes are below:
 ### [Tablet Wireframe](wireframes/layout-tablet.png "Tablet wireframe")
 
 ### [Phone Wireframe](wireframes/layout-mobile.png "Phone wireframe")
+
+[Back to Top](#table-of-contents)
+
+## Features
+
+### Navigation Bar
+
+### Welcome Page
+
+### Game Page
+
+### Footer
+
+### Features to be Implemented
+
+- Feature 1
+- Feature 2
+
+[Back to Top](#table-of-contents)
+
+## Technologies used
+
+### Languages
+
+- [HTML](https://en.wikipedia.org/wiki/HTML "HTML")
+- [CSS](https://en.wikipedia.org/wiki/CSS "CSS")
+- [Javascript](https://en.wikipedia.org/wiki/JavaScript "Javascript")
+
+### Libraries & Frameworks
+
+- [Google Fonts](https://fonts.google.com/ "Google Fonts")
+- [Font Awesome library](https://fontawesome.com/ "Font Awesome")
+
+### Tools
+
+- [Balsamic](https://balsamiq.com/wireframes/ "Balsamic")
+- [W3C HTML Validation Service](https://validator.w3.org/ "W3C HTML")
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/ "W3C CSS")
+- [Colorcombos](https://www.colorcombos.com "colorcombos")
+- [CSS Scan](https://getcssscan.com/css-box-shadow-examples "getcssscan.com")
+- [Squoosh](https://squoosh.app/ "squoosh.app")
+
+[Back to Top](#table-of-contents)
+
+## Testing
+
+- The website has met the objectives set by all parties involved. It's responsive on various screen sizes, ensuring clean and crisp images without excessive empty space. Users can easily navigate and contact us through the contact form or social media. The content is concise, and the design is uncluttered, providing a user-friendly experience.
+
+- While testing I didn't encounter any errors with the final project.
+- HTML (index.html) validator [results](wireframes/html-validate.jpg "W3C HTML")
+- CSS validator [results](wireframes/css-validate.jpg "W3C CSS")
+
+- The final project was tested using Google's Lighthouse on github pages. The results are below
+- Performance test for Mobile:
+
+![Performance test for mobile](wireframes/mobile-performance.jpg)
+
+- Performance test for Desktop:
+
+![Performance test for mobile](wireframes/desktop-performance.jpg)
+
+- When testing on Google Chrome mobile version I didn't like the default browser theme color so I've customized the browser's theme color to match the website's theme, ensuring that everything looks just the way I prefer it.
+
+```
+<meta name="theme-color" content="#1e2140">
+```
+
+- Using Mobile Simulator extension in Google Chrome I have tested the website on differite devices. Test results are listed below.
+
+| Device                |     Test 1     |       Test 2 | Result Test 1 | Result Test 2 |
+| --------------------- | :------------: | -----------: | ------------- | ------------- |
+| Samsung Galaxy S20    | Responsiveness |  Attractions | Passed        | Passed        |
+| Samsung Galaxy S21 FE | Responsiveness |  Menu Button | Passed        | Passed        |
+| iPad Air 4            | Responsiveness |         Menu | Passed        | Passed        |
+| Galaxy Tab S7         | Responsiveness |         Menu | Passed        | Passed        |
+| iPhone 5              | Responsiveness |  Menu Button | Passed        | Passed        |
+| iPhone X              | Responsiveness |      History | Passed        | Passed        |
+| iPhone 11             | Responsiveness |      Cuisine | Passed        | Passed        |
+| iPhone 12 Mini        | Responsiveness | Contact Form | Passed        | Passed        |
+| iPhone 13 PRO         | Responsiveness |  Menu Button | Passed        | Passed        |
+| Mackbook Air          | Responsiveness |         Menu | Passed        | Passed        |
+| Desktop               | Responsiveness |    Thank You | Passed        | Passed        |
+| Dell Latitude         | Responsiveness |         Menu | Passed        | Passed        |
+
+## Bugs
+
+- There are no bugs to fix in the final project
+
+[Back to Top](#table-of-contents)
+
+## Deployment
+
+After writing the code, committing, and pushing it to GitHub, the project was deployed using GitHub by following these steps:
+
+- Go to the repository on GitHub and click on **Settings**
+
+- In the side navigation, select **Pages**
+
+- In the **None** dropdown, choose **main**
+
+- Click the **Save** button.
+
+- The website is now live at `https://USERNAME.github.io/explore-romania/`
+
+- If any changes are needed, you can make them, commit, and push to GitHub, and the updates will be reflected on the website.
+
+[Back to Top](#table-of-contents)
+
+### Refactor
+
+### Credits
 
 [Back to Top](#table-of-contents)
