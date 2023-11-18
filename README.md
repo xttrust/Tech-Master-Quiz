@@ -1,6 +1,6 @@
-![TechMasterQuiz Logo](https://placehold.co/220x90?text=TechMasterQuiz+Logo)
+# Welcome to TechMasterQuiz
 
-Welcome to TechMasterQuiz,
+![TechMasterQuiz Logo](https://placehold.co/220x90?text=TechMasterQuiz+Logo)
 
 TechMasterQuiz game, a challenge for tech fans! Test your computer knowledge in a game about digital tech and computer questions on our quiz platform. Show off your inner tech expert and demonstrate your skills in this fun and educational adventure.
 
