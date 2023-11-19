@@ -142,6 +142,12 @@ select {
     text-align: center;
 }
 
+.hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
 /* Header */
 header {
     position: relative;
@@ -175,6 +181,18 @@ main {
 /* home-text*/
 #how-to-play {
     height: auto;
+}
+
+/* Start game wrapper*/
+#start-game {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+/* Start content wrapper*/
+#game-content-wrapper {
+    display: none;
 }
 
 

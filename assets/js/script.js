@@ -1,9 +1,8 @@
 const btnStart = document.getElementById("start");
 
-
 btnStart.addEventListener("click", function (event) {
     event.preventDefault();
-    let dificulty = document.getElementById("dificulty").value;
+    let difficulty = document.getElementById("difficulty").value;
     let username = document.getElementById("username").value;
 
     // Check username, if empty, stop the game and send an alert.
@@ -11,9 +10,10 @@ btnStart.addEventListener("click", function (event) {
         return false;
     }
     // Username was entered - Start the game
-    hideGameWraper(); // Hide the startGameWraper
+    hideStartGameWrapper(); // Hide the startGameWrapper
     // Start the game
-    console.log(`Welcome ${username}, dificulty ${dificulty}. The game has started.`);
+    showGame();
+    console.log(`Welcome ${username}, difficulty ${difficulty}. The game has started.`);
 });
 
 /**
@@ -28,12 +28,21 @@ function checkUsername(username) {
     return true;
 }
 
+/**
+ * This will hide the form that lets the user select 
+ * difficulty and set username
+ */
+function hideStartGameWrapper() {
+    let startGameWrapper = document.getElementById("start-game-wrapper");
+    startGameWrapper.classList.add("hidden");
+}
 
 /**
- * This will hide the form that lets the user to select 
- * dificulty and set username
+ * This will display the game wrapper
  */
-function hideGameWraper() {
-    let startGameWraper = document.getElementById("start-game-wrapper");
-    startGameWraper.style.display = 'none';
+function showGame() {
+    let gameWrapper = document.getElementById("game-content-wrapper");
+    gameWrapper.style.display = "block";
 }
+
+
