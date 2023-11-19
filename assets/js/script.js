@@ -13,6 +13,9 @@ btnStart.addEventListener("click", function (event) {
     hideStartGameWrapper(); // Hide the startGameWrapper
     // Start the game
     showGame();
+    showGameWelcomeMessage(username, difficulty);
+
+    // log a message for testing porpose only.
     console.log(`Welcome ${username}, difficulty ${difficulty}. The game has started.`);
 });
 
@@ -43,6 +46,11 @@ function hideStartGameWrapper() {
 function showGame() {
     let gameWrapper = document.getElementById("game-content-wrapper");
     gameWrapper.style.display = "block";
+}
+
+function showGameWelcomeMessage(username, difficulty) {
+    let gameWelcomeMessage = document.getElementById("game-welcome-message");
+    gameWelcomeMessage.innerHTML = `Welcome <b>${username}</b>, your difficulty is: <b>${difficulty}</b>. Have fun!`;
 }
 
 
