@@ -25,6 +25,7 @@ function startGame() {
         return false;
     }
     hideStartGameWrapper(); // Hide the startGameWrapper
+    hideHowToPlay(); // Hide the howToPlay section
     // Start the game
     showGame(); // Display the game wrapper
     fetchData(difficulty); // Fetch the data from api based on difficulty
@@ -52,6 +53,14 @@ function checkUsername(username) {
 function hideStartGameWrapper() {
     let startGameWrapper = document.getElementById("start-game-wrapper");
     startGameWrapper.classList.add("hidden");
+}
+
+/**
+ * Hide how to play section
+ */
+function hideHowToPlay() {
+    let howToPlayWrapper = document.getElementById("how-to-play");
+    howToPlayWrapper.classList.add("hidden");
 }
 
 /**
