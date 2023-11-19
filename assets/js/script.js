@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
  * @returns false
  */
 function startGame() {
+
     let difficulty = document.getElementById("difficulty").value;
     let username = document.getElementById("username").value;
 
@@ -26,8 +27,8 @@ function startGame() {
     hideStartGameWrapper(); // Hide the startGameWrapper
     // Start the game
     showGame();
-    showGameWelcomeMessage(username, difficulty);
-    console.log(fetchApiData(difficulty));
+    showGameContent(username, difficulty);
+
 }
 
 
@@ -64,36 +65,20 @@ function showGame() {
 /**
  * Display the game welcome message
  */
-function showGameWelcomeMessage(username, difficulty) {
-    let gameWelcomeMessage = document.getElementById("game-welcome-message");
-    gameWelcomeMessage.innerHTML = `Welcome <b>${username}</b>, your difficulty is: <b>${difficulty}</b>. Have fun!`;
+function showGameContent(username, difficulty) {
+
+    // Get the game content wrapper
+    let gameContentWrapper = document.getElementById("game-content-wrapper");
+    // Create the welcome message paragraph
+    let gameWelcomeMessage = document.createElement("p");
+    gameWelcomeMessage.id = "game-welcome-message";
+    gameWelcomeMessage.innerHTML = `Welcome <b>${username}</b>, selected difficulty: <b>${difficulty}</b>. Have fun!`;
+    // Add the welcome message paragraph to the game content wrapper
+    gameContentWrapper.appendChild(gameWelcomeMessage);
+
 }
 
-function fetchApiData(difficulty) {
-    const apiUrl = "https://opentdb.com/api.php?amount=10&category=18&difficulty=" + difficulty;
-    let quizData = [];
 
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-
-            for (let i = 0; i < data.results.length; i++) {
-                let questionData = {
-                    question: data.results[i].question,
-                    correctAnswer: data.results[i].correct_answer,
-                    incorrectAnswers: data.results[i].incorrect_answers
-                };
-
-                quizData.push(questionData);
-            }
-
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-
-    return quizData;
-}
 
 
 
