@@ -35,40 +35,7 @@ function startGame() {
 }
 
 
-/**
- * Check empty values for username
- */
-function checkUsername(username) {
-    if (!username) {
-        alert("Please enter a username.");
-        return false;
-    }
-    return true;
-}
 
-/**
- * Hide the start game section
- */
-function hideStartGameWrapper() {
-    let startGameWrapper = document.getElementById("start-game-wrapper");
-    startGameWrapper.classList.add("hidden");
-}
-
-/**
- * Hide how to play section
- */
-function hideHowToPlay() {
-    let howToPlayWrapper = document.getElementById("how-to-play");
-    howToPlayWrapper.classList.add("hidden");
-}
-
-/**
- * Display the game wrapper
- */
-function showGame() {
-    let gameWrapper = document.getElementById("game-content-wrapper");
-    gameWrapper.style.display = "block";
-}
 
 
 /**
@@ -78,8 +45,8 @@ function showGameContent(username, difficulty) {
     let nr = 0; // The value for this will be from a button
     let question = getFinalData(localStorageData[nr]);
     createWelcomeMessage(username, difficulty);
-    createAnswersContent(nr, question);
 
+    createAnswersContent(nr, question);
 
     //console.log(getFinalData(localStorageData[0]).question);
 }
@@ -104,14 +71,25 @@ function createAnswersContent(nr, question) {
         answerOption.setAttribute("data-nr", nr);
         answerOption.innerHTML = question.incorrectAnswers[i];
 
+        // Add an event listener to each button
+        answerOption.addEventListener("click", handleButtonClick);
+
         gameContentWrapper.appendChild(answerOption);
         gameContentWrapper.appendChild(document.createElement("br"));
     }
-
 }
 
+//Event handler for button click
+function handleButtonClick(event) {
+    let selectedButton = event.target;
+    let userAnswer = selectedButton.getAttribute("data-value");
+    let nr = selectedButton.getAttribute("data-nr");
+    console.log(`The selected answer is: ${userAnswer} and the number is: ${nr}`);
+}
+
+
 /**
- * This functio creates a p with the welcome message when the game starts
+ * Creates the welcome message based on username and difficulty
  * @param {*} username 
  * @param {*} difficulty 
  */
@@ -205,6 +183,42 @@ function handleResponse(response) {
 function getData() {
     let storedData = localStorage.getItem('quizData');
     return JSON.parse(storedData);
+}
+
+
+/**
+ * Check empty values for username
+ */
+function checkUsername(username) {
+    if (!username) {
+        alert("Please enter a username.");
+        return false;
+    }
+    return true;
+}
+
+/**
+ * Hide the start game section
+ */
+function hideStartGameWrapper() {
+    let startGameWrapper = document.getElementById("start-game-wrapper");
+    startGameWrapper.classList.add("hidden");
+}
+
+/**
+ * Hide how to play section
+ */
+function hideHowToPlay() {
+    let howToPlayWrapper = document.getElementById("how-to-play");
+    howToPlayWrapper.classList.add("hidden");
+}
+
+/**
+ * Display the game wrapper
+ */
+function showGame() {
+    let gameWrapper = document.getElementById("game-content-wrapper");
+    gameWrapper.style.display = "block";
 }
 
 
