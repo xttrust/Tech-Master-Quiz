@@ -85,9 +85,8 @@ function showGameContent(username, difficulty) {
 }
 
 function createAnswersContent(nr, question) {
-    let nr = nr + 1;
     let progressText = document.createElement("p");
-    progressText.innerHTML = `Question <strong>${nr}</strong> out of 10<strong></strong>`;
+    progressText.innerHTML = `Question <strong>${nr + 1}</strong> out of 10<strong></strong>`;
     gameContentWrapper.appendChild(progressText);
 
     // Display the question
