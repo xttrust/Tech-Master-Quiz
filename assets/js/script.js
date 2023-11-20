@@ -36,8 +36,7 @@ function startGame() {
 
 
 /**
- * Check empty values on username. If the username is empty
- * it will show an alert
+ * Check empty values for username
  */
 function checkUsername(username) {
     if (!username) {
@@ -48,8 +47,7 @@ function checkUsername(username) {
 }
 
 /**
- * This will hide the form that lets the user select 
- * difficulty and set username
+ * Hide the start game section
  */
 function hideStartGameWrapper() {
     let startGameWrapper = document.getElementById("start-game-wrapper");
@@ -74,18 +72,20 @@ function showGame() {
 
 
 /**
- * Display the game welcome message
+ * Display the game content
  */
 function showGameContent(username, difficulty) {
-    let question = getFinalData(localStorageData[0]);
+    let nr = 0; // The value for this will be from a button
+    let question = getFinalData(localStorageData[nr]);
     createWelcomeMessage(username, difficulty);
-    createAnswersContent("1", question);
+    createAnswersContent(nr, question);
 
 
     //console.log(getFinalData(localStorageData[0]).question);
 }
 
 function createAnswersContent(nr, question) {
+    let nr = nr + 1;
     let progressText = document.createElement("p");
     progressText.innerHTML = `Question <strong>${nr}</strong> out of 10<strong></strong>`;
     gameContentWrapper.appendChild(progressText);
@@ -102,7 +102,7 @@ function createAnswersContent(nr, question) {
         answerOption.classList.add("button");
         answerOption.classList.add("button-block");
         answerOption.setAttribute("data-value", question.incorrectAnswers[i]);
-        answerOption.setAttribute("data-nr", nr);
+        answerOption.setAttribute("data-nr", nr - 1);
         answerOption.innerHTML = question.incorrectAnswers[i];
 
         gameContentWrapper.appendChild(answerOption);
