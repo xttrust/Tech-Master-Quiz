@@ -119,6 +119,7 @@ select {
 
 .button {
     padding: 1rem;
+    margin-top: 1rem;
     border: 0;
     border-radius: 2rem;
     background-color: var(--clr-pink);
@@ -126,6 +127,11 @@ select {
     cursor: pointer;
     transition: all 1s ease;
     font-weight: 700;
+}
+
+.button-block {
+    width: 100%;
+    display: block;
 }
 
 .button:hover {

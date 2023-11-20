@@ -1,4 +1,5 @@
 const btnStart = document.getElementById("start");
+const gameContentWrapper = document.getElementById("game-content-wrapper");
 const localStorageData = getData();
 
 // Wait for the document to be loaded
@@ -76,23 +77,52 @@ function showGame() {
  * Display the game welcome message
  */
 function showGameContent(username, difficulty) {
+    let question = getFinalData(localStorageData[0]);
+    createWelcomeMessage(username, difficulty);
+    createAnswersContent("1", question);
 
-    // Get the game content wrapper
-    let gameContentWrapper = document.getElementById("game-content-wrapper");
 
-    // Create the welcome message paragraph
+    //console.log(getFinalData(localStorageData[0]).question);
+}
+
+function createAnswersContent(nr, question) {
+    let progressText = document.createElement("p");
+    progressText.innerHTML = `Question <strong>${nr}</strong> out of 10<strong></strong>`;
+    gameContentWrapper.appendChild(progressText);
+
+    // Display the question
+    let questionText = document.createElement("p");
+    questionText.innerHTML = `<strong>${question.question}</strong>`;
+    gameContentWrapper.appendChild(questionText);
+
+    // Display answer options as buttons
+    for (let i = 0; i < question.incorrectAnswers.length; i++) {
+        let answerOption = document.createElement("button");
+        answerOption.type = "button";
+        answerOption.classList.add("button");
+        answerOption.classList.add("button-block");
+        answerOption.setAttribute("data-value", question.incorrectAnswers[i]);
+        answerOption.setAttribute("data-nr", nr);
+        answerOption.innerHTML = question.incorrectAnswers[i];
+
+        gameContentWrapper.appendChild(answerOption);
+        gameContentWrapper.appendChild(document.createElement("br"));
+    }
+
+}
+
+/**
+ * This functio creates a p with the welcome message when the game starts
+ * @param {*} username 
+ * @param {*} difficulty 
+ */
+function createWelcomeMessage(username, difficulty) {
     let gameWelcomeMessage = document.createElement("p");
     gameWelcomeMessage.id = "game-welcome-message";
-    gameWelcomeMessage.innerHTML = `Welcome <b>${username}</b>, selected difficulty: <b>${difficulty}</b>. Have fun!`;
+    gameWelcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun! <hr>`;
 
     // Add the welcome message paragraph to the game content wrapper
     gameContentWrapper.appendChild(gameWelcomeMessage);
-
-    // Set the data to local strage
-
-
-
-    console.log(getFinalData(localStorageData[0]));
 }
 
 
