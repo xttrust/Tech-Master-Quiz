@@ -101,7 +101,7 @@ function createAnswersContent(nr, question) {
         answerOption.classList.add("button");
         answerOption.classList.add("button-block");
         answerOption.setAttribute("data-value", question.incorrectAnswers[i]);
-        answerOption.setAttribute("data-nr", nr - 1);
+        answerOption.setAttribute("data-nr", nr);
         answerOption.innerHTML = question.incorrectAnswers[i];
 
         gameContentWrapper.appendChild(answerOption);
