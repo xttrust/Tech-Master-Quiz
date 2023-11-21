@@ -157,6 +157,12 @@ select {
     visibility: hidden;
 }
 
+.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Header */
 header {
     position: relative;

@@ -121,25 +121,20 @@ function handleButtonClick(event, correctAnswer) {
 
 
 /**
- * Creates the welcome message based on username and difficulty
+ * Updates the welcome message based on username and difficulty
  * @param {string} username - The username of the player.
  * @param {string} difficulty - The difficulty level of the quiz.
  */
 function createWelcomeMessage(username, difficulty) {
-    // Check if the welcome message already exists
-    let existingWelcomeMessage = document.getElementById("game-welcome-message");
-    if (existingWelcomeMessage) {
-        // Update the existing welcome message if it exists
-        existingWelcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun! <hr>`;
-    } else {
-        // Create a new welcome message if it doesn't exist
-        let gameWelcomeMessage = document.createElement("p");
-        gameWelcomeMessage.id = "game-welcome-message";
-        gameWelcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun! <hr>`;
+    // Get the welcome message element
+    let welcomeMessageWrapper = document.getElementById("welcome-message-wrapper");
+    welcomeMessageWrapper.classList.remove("hidden");
+    welcomeMessageWrapper.classList.add("show");
 
-        // Add the welcome message at the beginning of the game content wrapper
-        gameContentWrapper.insertBefore(gameWelcomeMessage, gameContentWrapper.firstChild);
-    }
+    let welcomeMessage = document.getElementById("game-welcome-message");
+
+    // Update the innerHTML
+    welcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun! <hr>`;
 }
 
 /**
