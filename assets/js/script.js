@@ -272,7 +272,7 @@ function displayScore(username) {
 }
 
 /**
- * Display the final score and a button to reset the game
+ * Display the final score messages and a button to reset the game
  * @param {*} username 
  */
 function displayScoreMessage(username) {
@@ -308,5 +308,27 @@ function resetGame() {
 
     // Reload the page to start a new game
     location.reload();
+}
+
+/**
+ * Close 
+ */
+function toggleWrapper() {
+    let howToPlayList = document.getElementById("how-to-play-list");
+
+    // Toggle the visibility of the container
+    howToPlayList.classList.toggle("hidden");
+
+    // Optionally, you can add logic to change the button icon based on the visibility state
+    let buttonIcon = document.querySelector(".close-button i.fa-solid");
+    if (howToPlayList.classList.contains("hidden")) {
+        // Container is hidden, change the icon to plus
+        buttonIcon.classList.remove("fa-minus");
+        buttonIcon.classList.add("fa-plus");
+    } else {
+        // Container is visible, change the icon to minus
+        buttonIcon.classList.remove("fa-plus");
+        buttonIcon.classList.add("fa-minus");
+    }
 }
 

@@ -104,6 +104,7 @@ select {
 
 /* Standard classes */
 .wrapper {
+    position: relative;
     z-index: 99;
     margin: 2rem;
     padding: 1.5rem;
@@ -172,6 +173,15 @@ select {
 
 .mb-3 {
     margin-bottom: 3rem;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0;
+    margin-top: 0;
+    border-top-right-radius: 2rem;
 }
 
 /* Header */
