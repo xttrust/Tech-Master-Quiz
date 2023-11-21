@@ -200,7 +200,7 @@ main {
     flex-direction: column;
 }
 
-/* home-text*/
+/* How to play */
 #how-to-play {
     height: auto;
 }
@@ -227,7 +227,6 @@ footer {
     display: block;
     width: 100%;
     height: auto;
-    background-color: var(--clr-dark);
     padding: 1rem;
     margin-top: 5rem;
 }
@@ -239,6 +238,8 @@ footer {
     text-align: center;
 }
 
+
+/* Media query: large or landscape phones (576px and up) */
 @media screen and (min-width: 576px) {
     main {
         width: 50rem;
