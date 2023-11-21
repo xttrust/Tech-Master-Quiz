@@ -4,7 +4,7 @@
 
 TechMasterQuiz game, a challenge for tech fans! Test your computer knowledge in a game about digital tech and computer questions on our quiz platform. Show off your inner tech expert and demonstrate your skills in this fun and educational adventure.
 
-TechMasterQuiz is designed for individuals eager to test their computer knowledge and for those keen on expanding their understanding of computers. Whether you're a seasoned tech enthusiast or a newcomer looking to delve into the digital realm, our quiz provides an engaging platform to challenge yourself and learn more about the fascinating world of computers.
+TechMasterQuiz is designed for individuals eager to test their computer knowledge and for those keen on expanding their understanding of computers.
 
 ![TechMasterQuiz Multiview image](https://placehold.co/1200x600?text=TechMasterQuiz+Multiview)
 
@@ -64,7 +64,6 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 - As a user looking for a quick break, I want to be able to start a short quiz without having to go through a lengthy sign-up process, so that I can enjoy a quick and fun diversion.
 - As a social user, I want the option to share my quiz results on social media and challenge my friends, so that I can engage with others and showcase my achievements.
 - As a returning user, I want to see my previous quiz results and track my improvement over time, so that I can gauge my progress and set personal goals.
-- As a user, I want to be able to make contact with the website via several different methods, i.e. social media.
 - As a casual user, I want the quiz platform to have a visually appealing and user-friendly design, so that I can navigate through the questions easily and enjoy a pleasant experience.
 
 [Back to Top](#table-of-contents)
@@ -75,40 +74,23 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
   - Increase the average time users spend on the platform.
 - Boost User Retention:
   - Encourage users to return to the platform regularly.
-- Expand User Base
-  - Grow the number of registered users on the platform.
-- Enhance Social Media Presence
-  - Increase visibility and engagement on social media platforms.
-- Improve Monetization
-  - Implement strategies to generate revenue (if applicable, e.g., through premium features, ads, or partnerships).
 - Enhance Content Quality:
   - Provide high-quality and diverse quiz content to keep users engaged.
-- Increase rankings on search engines.
 
 [Back to Top](#table-of-contents)
 
 ### Requirements
 
 - User Authentication:
-  - Users must be able to log in using their registered username.
+  - Users are asked to insert a username.
 - Quiz Creation:
   - The system should allow administrators to create quizzes with multiple-choice questions.
-- User Progress Tracking:
-  - The platform should track and display users' quiz scores and progress over time.
-- Leaderboard:
-  - A leaderboard should be available to display the highest scores achieved by users.
-- Social Sharing:
-  - Users should have the option to share their quiz results on social media.
 - Mobile Responsiveness:
   - The platform should be accessible and user-friendly on various devices, including desktop and mobile.
 - Performance:
   - The system should respond to user interactions quickly, with minimal latency.
 - Compatibility:
   - The platform should be compatible with major web browsers to accommodate a wide range of users.
-- Maintainability:
-  - The codebase should be well-organized and documented for ease of maintenance and future development.
-- Monetization:
-  - If applicable, the system should support monetization strategies, such as advertisements or premium features.
 
 [Back to Top](#table-of-contents)
 
@@ -122,13 +104,8 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
   - Users look forward to diverse and high-quality quiz content, covering a range of topics within the field of technology.
 - Immediate Feedback:
   - Users anticipate immediate feedback on quiz questions, with clear explanations for correct and incorrect answers, enhancing the learning experience.
-- Progress Tracking:
-  - Users expect the platform to track and display their quiz scores and progress over time, allowing them to see improvements and set personal goals.
-- Social Interaction:
-  - Users want the option to share their quiz results on social media platforms, as well as the ability to challenge and compete with friends.
 - Intuitive User Interface:
   - Users anticipate a user-friendly and visually appealing interface that is easy to navigate, contributing to an enjoyable overall experience.
-- Community Engagement:
   
 [Back to Top](#table-of-contents)
 
