@@ -135,7 +135,7 @@ function createWelcomeMessage(username, difficulty) {
     let welcomeMessage = document.getElementById("game-welcome-message");
 
     // Update the innerHTML
-    welcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun! <hr>`;
+    welcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun!`;
 }
 
 /**
