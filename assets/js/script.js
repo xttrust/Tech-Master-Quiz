@@ -92,7 +92,8 @@ function showNextQuestion(username, difficulty) {
         currentQuestion++; // Increment the current question
     } else {
         // Handle end of the quiz and display the score
-        displayScore();
+        displayScore(username);
+        // Hide the game
         console.log("End of the quiz");
     }
 }
@@ -259,8 +260,19 @@ function showGame() {
 /**
  * Display the score
  */
-function displayScore() {
-    let scoreText = document.createElement("p");
-    scoreText.innerHTML = `Score: Correct Answers - ${correctAnswers}, Wrong Answers - ${wrongAnswers}`;
-    gameContentWrapper.appendChild(scoreText);
+function displayScore(username) {
+    // Show the score wrapper
+    let scoreWrapper = document.getElementById("score-wrapper");
+    scoreWrapper.classList.remove("hidden");
+    scoreWrapper.classList.add("show");
+
+    // Display the score message
+    let scoreMessage = document.getElementById("score-message");
+    scoreMessage.innerHTML = `
+        Well done, ${username}! Here are the results of your answers:<br><br>
+        <strong>Correct Answers:</strong> <span class="text-green">${correctAnswers}</span><br>
+        <strong>Incorrect Answers:</strong> <span class="text-red">${wrongAnswers}</span>
+    `;
+
 }
+

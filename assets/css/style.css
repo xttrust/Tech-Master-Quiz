@@ -163,6 +163,14 @@ select {
     visibility: visible;
 }
 
+.text-red {
+    color: var(--clr-red);
+}
+
+.text-green {
+    color: var(--clr-green);
+}
+
 /* Header */
 header {
     position: relative;
