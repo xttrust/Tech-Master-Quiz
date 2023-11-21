@@ -134,6 +134,15 @@ select {
     display: block;
 }
 
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0;
+    margin-top: 0;
+    border-top-right-radius: 2rem;
+}
+
 .button:hover,
 .button:active,
 .button::after,
@@ -175,14 +184,6 @@ select {
     margin-bottom: 3rem;
 }
 
-.close-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-radius: 0;
-    margin-top: 0;
-    border-top-right-radius: 2rem;
-}
 
 /* Header */
 header {
@@ -243,8 +244,6 @@ footer {
     padding: 1rem;
     margin-top: 5rem;
 }
-
-
 
 #footer-text {
     font-weight: 100;

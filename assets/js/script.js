@@ -103,13 +103,14 @@ function handleButtonClick(event, correctAnswer) {
         alert(`Well done, your answer: ${userAnswer} is the correct answer.`);
     } else {
         wrongAnswers++;
+
         alert(`Oh no, you answered: ${userAnswer} but the correct answer is ${correctAnswer}.`);
     }
 
     // Proceed to the next question after a brief delay
     setTimeout(() => {
         showNextQuestion(document.getElementById("username").value, document.getElementById("difficulty").value);
-    }, 100); // Adjust the delay duration as needed
+    }, 1000); // Adjust the delay duration as needed
 }
 
 
