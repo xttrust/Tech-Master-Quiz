@@ -134,7 +134,10 @@ select {
     display: block;
 }
 
-.button:hover {
+.button:hover,
+.button:active,
+.button::after,
+.button::before {
     background-color: var(--clr-blue);
     color: var(--color-light);
 }

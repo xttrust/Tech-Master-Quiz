@@ -73,11 +73,12 @@ function showNextQuestion(username, difficulty) {
             answerOption.setAttribute("data-value", question.incorrectAnswers[i]);
             answerOption.innerHTML = question.incorrectAnswers[i];
 
-            // Add an event listener to each button
-            answerOption.addEventListener("click", handleButtonClick);
+            // Add an event listener to each button with the correct answer
+            answerOption.addEventListener("click", function (event) {
+                handleButtonClick(event, currentQuestion, question.correctAnswer);
+            });
 
             gameContentWrapper.appendChild(answerOption);
-            gameContentWrapper.appendChild(document.createElement("br"));
         }
 
         currentQuestion++; // Increment the current question
@@ -87,16 +88,19 @@ function showNextQuestion(username, difficulty) {
     }
 }
 
-/**
- * Event handler for button click
- * @param {Event} event - The click event.
- */
-function handleButtonClick(event) {
-    showNextQuestion(document.getElementById("username").value, document.getElementById("difficulty").value);
+// Event handler for button click
+function handleButtonClick(event, nr, correctAnswer) {
     let selectedButton = event.target;
     let userAnswer = selectedButton.getAttribute("data-value");
-    console.log(`The selected answer is: ${userAnswer}`);
+    console.log(`The selected answer is: ${userAnswer} for question ${nr}`);
+    console.log(`The correct answer is: ${correctAnswer}`);
+
+    // Proceed to the next question after a brief delay
+    setTimeout(() => {
+        showNextQuestion(document.getElementById("username").value, document.getElementById("difficulty").value);
+    }, 500); // Adjust the delay duration as needed
 }
+
 
 /**
  * Creates the welcome message based on username and difficulty
@@ -144,6 +148,7 @@ function getFinalData(array) {
 }
 
 /**
+ * I asked chatGPT to show me an example of how to shuffle an array.
  * Shuffle an array using the Fisher-Yates algorithm
  * It iterates through the array backward, and for each element, 
  * it randomly selects an element from the remaining 
