@@ -1,7 +1,12 @@
+// Elements
 const btnStart = document.getElementById("start");
 const gameContentWrapper = document.getElementById("game-content-wrapper");
+
+// Quiz data
 const localStorageData = getData();
-let currentQuestion = 0; // Track the current question
+
+// Track the current question
+let currentQuestion = 0;
 
 // Wait for the document to be loaded
 document.addEventListener("DOMContentLoaded", function () {
@@ -13,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /**
  * Starts the game  
- * @returns false
+ * @returns {boolean} - Returns false if username is empty.
  */
 function startGame() {
     let difficulty = document.getElementById("difficulty").value;
@@ -23,11 +28,14 @@ function startGame() {
     if (!checkUsername(username)) {
         return false;
     }
-    hideStartGameWrapper(); // Hide the startGameWrapper
-    hideHowToPlay(); // Hide the howToPlay section
+
     // Start the game
     showGame(); // Display the game wrapper
-    fetchData(difficulty) // Fetch the data from api based on difficulty
+
+    hideStartGameWrapper(); // Hide the startGameWrapper
+    hideHowToPlay(); // Hide the howToPlay section
+
+    fetchData(difficulty)
         .then(() => {
             showNextQuestion(username, difficulty);
         })
@@ -38,12 +46,40 @@ function startGame() {
 
 /**
  * Display the next question
+ * @param {string} username - The username of the player.
+ * @param {string} difficulty - The difficulty level of the quiz.
  */
 function showNextQuestion(username, difficulty) {
     if (currentQuestion < localStorageData.length) {
         let question = getFinalData(localStorageData[currentQuestion]);
+
+        // Clear previous content
+        gameContentWrapper.innerHTML = "";
+
+        // Display the welcome message
         createWelcomeMessage(username, difficulty);
-        createAnswersContent(currentQuestion, question);
+
+        // Display the question
+        let questionText = document.createElement("p");
+        questionText.innerHTML = `<strong>${question.question}</strong>`;
+        gameContentWrapper.appendChild(questionText);
+
+        // Display answer options as buttons
+        for (let i = 0; i < question.incorrectAnswers.length; i++) {
+            let answerOption = document.createElement("button");
+            answerOption.type = "button";
+            answerOption.classList.add("button");
+            answerOption.classList.add("button-block");
+            answerOption.setAttribute("data-value", question.incorrectAnswers[i]);
+            answerOption.innerHTML = question.incorrectAnswers[i];
+
+            // Add an event listener to each button
+            answerOption.addEventListener("click", handleButtonClick);
+
+            gameContentWrapper.appendChild(answerOption);
+            gameContentWrapper.appendChild(document.createElement("br"));
+        }
+
         currentQuestion++; // Increment the current question
     } else {
         // Handle end of the quiz
@@ -51,37 +87,10 @@ function showNextQuestion(username, difficulty) {
     }
 }
 
-function createAnswersContent(nr, question) {
-    // Clear previous content
-    gameContentWrapper.innerHTML = "";
-
-    let progressText = document.createElement("p");
-    progressText.innerHTML = `Question <strong>${nr + 1}</strong> out of ${localStorageData.length}`;
-    gameContentWrapper.appendChild(progressText);
-
-    // Display the question
-    let questionText = document.createElement("p");
-    questionText.innerHTML = `<strong>${question.question}</strong>`;
-    gameContentWrapper.appendChild(questionText);
-
-    // Display answer options as buttons
-    for (let i = 0; i < question.incorrectAnswers.length; i++) {
-        let answerOption = document.createElement("button");
-        answerOption.type = "button";
-        answerOption.classList.add("button");
-        answerOption.classList.add("button-block");
-        answerOption.setAttribute("data-value", question.incorrectAnswers[i]);
-        answerOption.innerHTML = question.incorrectAnswers[i];
-
-        // Add an event listener to each button
-        answerOption.addEventListener("click", handleButtonClick);
-
-        gameContentWrapper.appendChild(answerOption);
-        gameContentWrapper.appendChild(document.createElement("br"));
-    }
-}
-
-// Event handler for button click
+/**
+ * Event handler for button click
+ * @param {Event} event - The click event.
+ */
 function handleButtonClick(event) {
     showNextQuestion(document.getElementById("username").value, document.getElementById("difficulty").value);
     let selectedButton = event.target;
@@ -91,22 +100,30 @@ function handleButtonClick(event) {
 
 /**
  * Creates the welcome message based on username and difficulty
- * @param {*} username 
- * @param {*} difficulty 
+ * @param {string} username - The username of the player.
+ * @param {string} difficulty - The difficulty level of the quiz.
  */
 function createWelcomeMessage(username, difficulty) {
-    let gameWelcomeMessage = document.createElement("p");
-    gameWelcomeMessage.id = "game-welcome-message";
-    gameWelcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun! <hr>`;
+    // Check if the welcome message already exists
+    let existingWelcomeMessage = document.getElementById("game-welcome-message");
+    if (existingWelcomeMessage) {
+        // Update the existing welcome message if it exists
+        existingWelcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun! <hr>`;
+    } else {
+        // Create a new welcome message if it doesn't exist
+        let gameWelcomeMessage = document.createElement("p");
+        gameWelcomeMessage.id = "game-welcome-message";
+        gameWelcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun! <hr>`;
 
-    // Add the welcome message paragraph to the game content wrapper
-    gameContentWrapper.appendChild(gameWelcomeMessage);
+        // Add the welcome message at the beginning of the game content wrapper
+        gameContentWrapper.insertBefore(gameWelcomeMessage, gameContentWrapper.firstChild);
+    }
 }
 
 /**
  * This function combines the correct answer with the incorrect answers,
  * shuffles the combined array, and creates a new object with the shuffled answers.
- * @param {*} array - The input data containing correct and incorrect answers.
+ * @param {Object} array - The input data containing correct and incorrect answers.
  * @returns {Object} - An object with the correct answer, shuffled incorrect answers, and the question.
  */
 function getFinalData(array) {
@@ -131,8 +148,8 @@ function getFinalData(array) {
  * It iterates through the array backward, and for each element, 
  * it randomly selects an element from the remaining 
  * unshuffled elements and swaps them.
- * @param {*} array 
- * @returns 
+ * @param {Array} array - The array to be shuffled.
+ * @returns {Array} - The shuffled array.
  */
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -141,7 +158,6 @@ function shuffleArray(array) {
     }
     return array;
 }
-
 
 /**
  * Fetches quiz data from the specified API based on the provided difficulty level.
@@ -185,9 +201,10 @@ function getData() {
     return JSON.parse(storedData);
 }
 
-
 /**
  * Check empty values for username
+ * @param {string} username - The username to be checked.
+ * @returns {boolean} - Returns true if the username is not empty.
  */
 function checkUsername(username) {
     if (!username) {
@@ -220,6 +237,3 @@ function showGame() {
     let gameWrapper = document.getElementById("game-content-wrapper");
     gameWrapper.style.display = "block";
 }
-
-
-
