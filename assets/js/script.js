@@ -100,11 +100,8 @@ function handleButtonClick(event, correctAnswer) {
     // Check if the answer is correct
     if (userAnswer === correctAnswer) {
         correctAnswers++;
-        alert(`Well done, your answer: ${userAnswer} is the correct answer.`);
     } else {
         wrongAnswers++;
-
-        alert(`Oh no, you answered: ${userAnswer} but the correct answer is ${correctAnswer}.`);
     }
 
     // Proceed to the next question after a brief delay
