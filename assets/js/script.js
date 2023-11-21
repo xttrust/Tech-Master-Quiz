@@ -47,11 +47,6 @@ function startGame() {
  * @param {string} username - The username of the player.
  * @param {string} difficulty - The difficulty level of the quiz.
  */
-/**
- * Display the next question
- * @param {string} username - The username of the player.
- * @param {string} difficulty - The difficulty level of the quiz.
- */
 function showNextQuestion(username, difficulty) {
     if (currentQuestion < localStorageData.length) {
         let question = getFinalData(localStorageData[currentQuestion]);
