@@ -311,15 +311,12 @@ function resetGame() {
 }
 
 /**
- * Close 
+ * Toggle the how to play list
  */
-function toggleWrapper() {
+function toggleHowToPlayList() {
     let howToPlayList = document.getElementById("how-to-play-list");
-
-    // Toggle the visibility of the container
     howToPlayList.classList.toggle("hidden");
 
-    // Optionally, you can add logic to change the button icon based on the visibility state
     let buttonIcon = document.querySelector(".close-button i.fa-solid");
     if (howToPlayList.classList.contains("hidden")) {
         // Container is hidden, change the icon to plus
