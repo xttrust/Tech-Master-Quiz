@@ -220,14 +220,28 @@ main {
 
 /* Footer */
 footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    /* Adjust the z-index value as needed */
     display: block;
     width: 100%;
     height: auto;
-    margin-top: 4rem;
     background-color: var(--clr-dark);
+    padding: 1rem;
+    margin-top: 5rem;
 }
+
+
 
 #footer-text {
     font-weight: 100;
     text-align: center;
+}
+
+@media screen and (min-width: 576px) {
+    main {
+        width: 50rem;
+        margin: 0 auto;
+    }
 }
