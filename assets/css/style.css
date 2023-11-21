@@ -142,6 +142,11 @@ select {
     border-radius: 0;
     margin-top: 0;
     border-top-right-radius: 2rem;
+    transition: all .4s ease-in;
+}
+
+.close-button:hover {
+    background-color: var(--clr-blue);
 }
 
 .button-red {
