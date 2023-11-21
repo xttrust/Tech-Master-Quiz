@@ -111,6 +111,7 @@ select {
     background-color: var(--clr-primary);
     border-radius: 2rem;
     box-shadow: var(--box-shadow);
+    transition: all .5s ease-in;
 }
 
 .wrapper:hover {
@@ -219,6 +220,7 @@ main {
 #how-to-play {
     height: auto;
 }
+
 
 /* Start game wrapper*/
 #start-game {
