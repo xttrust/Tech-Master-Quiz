@@ -110,7 +110,6 @@ select {
     background-color: var(--clr-primary);
     border-radius: 2rem;
     box-shadow: var(--box-shadow);
-    transition: all 1s ease;
 }
 
 .wrapper:hover {

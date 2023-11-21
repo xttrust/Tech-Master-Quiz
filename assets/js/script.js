@@ -261,6 +261,9 @@ function showGame() {
  * Display the score
  */
 function displayScore(username) {
+    // Hide the game wrapper 
+    let gameWrapper = document.getElementById("game-content-wrapper");
+    gameWrapper.classList.add("hidden");
     // Show the score wrapper
     let scoreWrapper = document.getElementById("score-wrapper");
     scoreWrapper.classList.remove("hidden");
