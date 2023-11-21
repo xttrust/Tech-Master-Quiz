@@ -144,13 +144,22 @@ select {
     border-top-right-radius: 2rem;
 }
 
-.button:hover,
-.button:active,
-.button::after,
-.button::before {
-    background-color: var(--clr-blue);
-    color: var(--color-light);
+.button-red {
+    background-color: var(--clr-red);
 }
+
+.button-red:hover {
+    background-color: var(--clr-red);
+}
+
+.button-green {
+    background-color: var(--clr-green);
+}
+
+.button-green:hover {
+    background-color: var(--clr-green);
+}
+
 
 .d-block {
     width: 100%;

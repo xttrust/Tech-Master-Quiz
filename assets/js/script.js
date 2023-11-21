@@ -100,8 +100,10 @@ function handleButtonClick(event, correctAnswer) {
     // Check if the answer is correct
     if (userAnswer === correctAnswer) {
         correctAnswers++;
+        selectedButton.classList.add("button-green");
     } else {
         wrongAnswers++;
+        selectedButton.classList.add("button-red");
     }
 
     // Proceed to the next question after a brief delay
