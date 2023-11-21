@@ -93,8 +93,6 @@ function showNextQuestion(username, difficulty) {
     } else {
         // Handle end of the quiz and display the score
         displayScore(username);
-        // Hide the game
-        console.log("End of the quiz");
     }
 }
 
@@ -270,6 +268,14 @@ function displayScore(username) {
     scoreWrapper.classList.add("show");
 
     // Display the score message
+    displayScoreMessage(username);
+}
+
+/**
+ * Display the final score and a button to reset the game
+ * @param {*} username 
+ */
+function displayScoreMessage(username) {
     let scoreMessage = document.getElementById("score-message");
     scoreMessage.innerHTML = `
         Well done, <strong>${username}!</strong> Here are the results of your answers:<br><br>
