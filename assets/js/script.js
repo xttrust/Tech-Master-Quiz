@@ -1,15 +1,14 @@
 const btnStart = document.getElementById("start");
 const gameContentWrapper = document.getElementById("game-content-wrapper");
 const localStorageData = getData();
+let currentQuestion = 0; // Track the current question
 
 // Wait for the document to be loaded
 document.addEventListener("DOMContentLoaded", function () {
-
     btnStart.addEventListener("click", function (event) {
         event.preventDefault();
         startGame();
     });
-
 });
 
 /**
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
  * @returns false
  */
 function startGame() {
-
     let difficulty = document.getElementById("difficulty").value;
     let username = document.getElementById("username").value;
 
@@ -29,31 +27,36 @@ function startGame() {
     hideHowToPlay(); // Hide the howToPlay section
     // Start the game
     showGame(); // Display the game wrapper
-    fetchData(difficulty); // Fetch the data from api based on difficulty
-    showGameContent(username, difficulty); // Display the game content
-
+    fetchData(difficulty) // Fetch the data from api based on difficulty
+        .then(() => {
+            showNextQuestion(username, difficulty);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
 }
 
-
-
-
-
 /**
- * Display the game content
+ * Display the next question
  */
-function showGameContent(username, difficulty) {
-    let nr = 0; // The value for this will be from a button
-    let question = getFinalData(localStorageData[nr]);
-    createWelcomeMessage(username, difficulty);
-
-    createAnswersContent(nr, question);
-
-    //console.log(getFinalData(localStorageData[0]).question);
+function showNextQuestion(username, difficulty) {
+    if (currentQuestion < localStorageData.length) {
+        let question = getFinalData(localStorageData[currentQuestion]);
+        createWelcomeMessage(username, difficulty);
+        createAnswersContent(currentQuestion, question);
+        currentQuestion++; // Increment the current question
+    } else {
+        // Handle end of the quiz
+        console.log("End of the quiz");
+    }
 }
 
 function createAnswersContent(nr, question) {
+    // Clear previous content
+    gameContentWrapper.innerHTML = "";
+
     let progressText = document.createElement("p");
-    progressText.innerHTML = `Question <strong>${nr + 1}</strong> out of 10<strong></strong>`;
+    progressText.innerHTML = `Question <strong>${nr + 1}</strong> out of ${localStorageData.length}`;
     gameContentWrapper.appendChild(progressText);
 
     // Display the question
@@ -68,7 +71,6 @@ function createAnswersContent(nr, question) {
         answerOption.classList.add("button");
         answerOption.classList.add("button-block");
         answerOption.setAttribute("data-value", question.incorrectAnswers[i]);
-        answerOption.setAttribute("data-nr", nr);
         answerOption.innerHTML = question.incorrectAnswers[i];
 
         // Add an event listener to each button
@@ -79,14 +81,13 @@ function createAnswersContent(nr, question) {
     }
 }
 
-//Event handler for button click
+// Event handler for button click
 function handleButtonClick(event) {
+    showNextQuestion(document.getElementById("username").value, document.getElementById("difficulty").value);
     let selectedButton = event.target;
     let userAnswer = selectedButton.getAttribute("data-value");
-    let nr = selectedButton.getAttribute("data-nr");
-    console.log(`The selected answer is: ${userAnswer} and the number is: ${nr}`);
+    console.log(`The selected answer is: ${userAnswer}`);
 }
-
 
 /**
  * Creates the welcome message based on username and difficulty
@@ -101,7 +102,6 @@ function createWelcomeMessage(username, difficulty) {
     // Add the welcome message paragraph to the game content wrapper
     gameContentWrapper.appendChild(gameWelcomeMessage);
 }
-
 
 /**
  * This function combines the correct answer with the incorrect answers,
