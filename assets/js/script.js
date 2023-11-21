@@ -264,6 +264,7 @@ function displayScore(username) {
     // Hide the game wrapper 
     let gameWrapper = document.getElementById("game-content-wrapper");
     gameWrapper.classList.add("hidden");
+
     // Show the score wrapper
     let scoreWrapper = document.getElementById("score-wrapper");
     scoreWrapper.classList.remove("hidden");
@@ -272,10 +273,35 @@ function displayScore(username) {
     // Display the score message
     let scoreMessage = document.getElementById("score-message");
     scoreMessage.innerHTML = `
-        Well done, ${username}! Here are the results of your answers:<br><br>
+        Well done, <strong>${username}!</strong> Here are the results of your answers:<br><br>
         <strong>Correct Answers:</strong> <span class="text-green">${correctAnswers}</span><br>
         <strong>Incorrect Answers:</strong> <span class="text-red">${wrongAnswers}</span>
     `;
 
+    // Add a button to play again
+    let playAgainButton = document.createElement("button");
+    playAgainButton.type = "button";
+    playAgainButton.classList.add("button");
+    playAgainButton.classList.add("d-block");
+    playAgainButton.innerHTML = "Play Again";
+
+    // Add an event listener to the play again button
+    playAgainButton.addEventListener("click", resetGame);
+
+    // Add the button to the score message
+    scoreMessage.appendChild(playAgainButton);
+}
+
+/**
+ * Reset all values to 0 and reload the page
+ */
+function resetGame() {
+    // Reset variables
+    currentQuestion = 0;
+    correctAnswers = 0;
+    wrongAnswers = 0;
+
+    // Reload the page to start a new game
+    location.reload();
 }
 
