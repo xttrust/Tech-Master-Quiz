@@ -1,12 +1,9 @@
-// Elements
 const btnStart = document.getElementById("start");
 const gameContentWrapper = document.getElementById("game-content-wrapper");
-
-// Quiz data
-const localStorageData = getData();
-
-// Track the current question
-let currentQuestion = 0;
+const localStorageData = getData(); // Quiz data
+let currentQuestion = 0; // Track the current question
+let correctAnswers = 0; // Track the number of correct answers
+let wrongAnswers = 0; // Track the number of wrong answers
 
 // Wait for the document to be loaded
 document.addEventListener("DOMContentLoaded", function () {
@@ -44,6 +41,12 @@ function startGame() {
         });
 }
 
+
+/**
+ * Display the next question
+ * @param {string} username - The username of the player.
+ * @param {string} difficulty - The difficulty level of the quiz.
+ */
 /**
  * Display the next question
  * @param {string} username - The username of the player.
@@ -58,6 +61,11 @@ function showNextQuestion(username, difficulty) {
 
         // Display the welcome message
         createWelcomeMessage(username, difficulty);
+
+        // Display the progress text
+        let progressText = document.createElement("p");
+        progressText.innerHTML = `Question ${currentQuestion + 1} out of ${localStorageData.length}`;
+        gameContentWrapper.appendChild(progressText);
 
         // Display the question
         let questionText = document.createElement("p");
@@ -75,7 +83,7 @@ function showNextQuestion(username, difficulty) {
 
             // Add an event listener to each button with the correct answer
             answerOption.addEventListener("click", function (event) {
-                handleButtonClick(event, currentQuestion, question.correctAnswer);
+                handleButtonClick(event, question.correctAnswer);
             });
 
             gameContentWrapper.appendChild(answerOption);
@@ -83,22 +91,32 @@ function showNextQuestion(username, difficulty) {
 
         currentQuestion++; // Increment the current question
     } else {
-        // Handle end of the quiz
+        // Handle end of the quiz and display the score
+        displayScore();
         console.log("End of the quiz");
     }
 }
 
+
 // Event handler for button click
-function handleButtonClick(event, nr, correctAnswer) {
+function handleButtonClick(event, correctAnswer) {
     let selectedButton = event.target;
     let userAnswer = selectedButton.getAttribute("data-value");
-    console.log(`The selected answer is: ${userAnswer} for question ${nr}`);
+
+    // Check if the answer is correct
+    if (userAnswer === correctAnswer) {
+        correctAnswers++;
+    } else {
+        wrongAnswers++;
+    }
+
+    console.log(`The selected answer is: ${userAnswer}`);
     console.log(`The correct answer is: ${correctAnswer}`);
 
     // Proceed to the next question after a brief delay
     setTimeout(() => {
         showNextQuestion(document.getElementById("username").value, document.getElementById("difficulty").value);
-    }, 500); // Adjust the delay duration as needed
+    }, 100); // Adjust the delay duration as needed
 }
 
 
@@ -241,4 +259,13 @@ function hideHowToPlay() {
 function showGame() {
     let gameWrapper = document.getElementById("game-content-wrapper");
     gameWrapper.style.display = "block";
+}
+
+/**
+ * Display the score
+ */
+function displayScore() {
+    let scoreText = document.createElement("p");
+    scoreText.innerHTML = `Score: Correct Answers - ${correctAnswers}, Wrong Answers - ${wrongAnswers}`;
+    gameContentWrapper.appendChild(scoreText);
 }
