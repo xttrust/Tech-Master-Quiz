@@ -114,10 +114,6 @@ select {
     transition: all .5s ease-in;
 }
 
-.wrapper:hover {
-    box-shadow: var(--box-shadow-hover);
-}
-
 .button {
     padding: 1rem;
     margin-top: 1rem;
