@@ -138,15 +138,7 @@ I will explain the uses of the various colors below, starting from top to bottom
 
 ### Structure
 
-The website will follow a mobile-first strategy, the main target is to create a visually appealing design for smaller screens. As for the smallest design I chose Samsung Galaxy S8 and iPhone 5. Target resolution is 320px. To ensure responsiveness, I'll rely on the predefined screen size breakpoints provided by [Bootstrap](https://getbootstrap.com/docs/5.0/layout/breakpoints/ "Bootstrap").
-
-| Screen Size | Breakpoint |
-| ----------- | ---------- |
-| x-small     | <576px     |
-| small       | => 576px   |
-| medium      | => 768px   |
-| large       | => 992px   |
-| x-large     | => 1200px  |
+The website will follow a mobile-first strategy, the main target is to create a visually appealing design for smaller screens. As for the smallest design I chose Samsung Galaxy S8 and iPhone 5. Target resolution is 320px. To ensure responsiveness, if the screen is > than 576px then the content will be displayed on the middle of the page with a width of 500px
 
 [Back to Top](#table-of-contents)
 
