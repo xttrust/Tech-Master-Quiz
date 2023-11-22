@@ -118,7 +118,7 @@ function handleButtonClick(event, correctAnswer) {
     // Proceed to the next question after a brief delay
     setTimeout(() => {
         showNextQuestion(document.getElementById("username").value, document.getElementById("difficulty").value);
-    }, 1000); // Adjust the delay duration as needed
+    }, 1000); // Add a timer for the user to see the wrong and correct answer.
 }
 
 // Find the button with the correct answer
