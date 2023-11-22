@@ -104,12 +104,40 @@ function handleButtonClick(event, correctAnswer) {
     } else {
         wrongAnswers++;
         selectedButton.classList.add("button-red");
+
+        // Find and highlight the button with the correct answer
+        const correctButton = findCorrectButton(correctAnswer);
+        if (correctButton) {
+            correctButton.classList.add("button-green");
+        }
     }
+
+    // Disable all buttons to prevent further clicks
+    disableButtons();
 
     // Proceed to the next question after a brief delay
     setTimeout(() => {
         showNextQuestion(document.getElementById("username").value, document.getElementById("difficulty").value);
     }, 1000); // Adjust the delay duration as needed
+}
+
+// Find the button with the correct answer
+function findCorrectButton(correctAnswer) {
+    const answerButtons = document.querySelectorAll(".button");
+    for (const button of answerButtons) {
+        if (button.getAttribute("data-value") === correctAnswer) {
+            return button;
+        }
+    }
+    return null; // Return null if the correct button is not found
+}
+
+// Function to disable all buttons
+function disableButtons() {
+    const answerButtons = document.querySelectorAll(".button");
+    answerButtons.forEach(button => {
+        button.disabled = true;
+    });
 }
 
 
