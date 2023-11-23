@@ -15,22 +15,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /**
  * Starts the game  
- * @returns {boolean} - Returns false if username is empty.
+ * @returns {boolean} 
  */
 function startGame() {
     let difficulty = document.querySelector("#difficulty").value;
     let username = document.querySelector("#username").value;
 
-    // Check username, if empty, stop the game and send an alert.
     if (!checkUsername(username)) {
         return false;
     }
 
     // Start the game
-    showGame(); // Display the game wrapper
+    showGame();
 
-    hideStartGameWrapper(); // Hide the startGameWrapper
-    hideHowToPlay(); // Hide the howToPlay section
+    hideStartGameWrapper();
+    hideHowToPlay();
 
     fetchData(difficulty)
         .then(() => {
@@ -84,20 +83,22 @@ function showNextQuestion(username, difficulty) {
             gameContentWrapper.appendChild(answerOption);
         }
 
-        currentQuestion++; // Increment the current question
+        currentQuestion++;
     } else {
-        // Handle end of the quiz and display the score
         displayScore(username);
     }
 }
 
 
-// Event handler for button click
+/**
+ * Handle the #start button click event
+ * @param {*} event 
+ * @param {*} correctAnswer 
+ */
 function handleButtonClick(event, correctAnswer) {
     let selectedButton = event.target;
     let userAnswer = selectedButton.getAttribute("data-value");
 
-    // Check if the answer is correct
     if (userAnswer === correctAnswer) {
         correctAnswers++;
         selectedButton.classList.add("button-green");
@@ -112,7 +113,6 @@ function handleButtonClick(event, correctAnswer) {
         }
     }
 
-    // Disable all buttons to prevent further clicks
     disableButtons();
 
     // Proceed to the next question after a brief delay
@@ -121,7 +121,11 @@ function handleButtonClick(event, correctAnswer) {
     }, 1200); // Add a timer for the user to see the wrong and correct answer.
 }
 
-// Find the button with the correct answer
+/**
+ * Find the button with the correct answer
+ * @param {*} correctAnswer 
+ * @returns 
+ */
 function findCorrectButton(correctAnswer) {
     const answerButtons = document.querySelectorAll(".button");
     for (const button of answerButtons) {
@@ -132,7 +136,9 @@ function findCorrectButton(correctAnswer) {
     return null; // Return null if the correct button is not found
 }
 
-// Function to disable all buttons
+/**
+ * Disable all buttons
+ */
 function disableButtons() {
     const answerButtons = document.querySelectorAll(".button");
     answerButtons.forEach(button => {
@@ -143,8 +149,8 @@ function disableButtons() {
 
 /**
  * Updates the welcome message based on username and difficulty
- * @param {string} username - The username of the player.
- * @param {string} difficulty - The difficulty level of the quiz.
+ * @param {string} username 
+ * @param {string} difficulty 
  */
 function createWelcomeMessage(username, difficulty) {
     // Get the welcome message element
@@ -182,7 +188,7 @@ function getFinalData(array) {
 }
 
 /**
- * I asked chatGPT to show me an example of how to shuffle an array.
+ * CREDITS for (shuffleArray) = chatGPT
  * Shuffle an array using the Fisher-Yates algorithm
  * It iterates through the array backward, and for each element, 
  * it randomly selects an element from the remaining 
