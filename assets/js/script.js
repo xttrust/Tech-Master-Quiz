@@ -1,9 +1,9 @@
-const btnStart = document.getElementById("start");
-const gameContentWrapper = document.getElementById("game-content-wrapper");
-const localStorageData = getData(); // Quiz data
-let currentQuestion = 0; // Track the current question
-let correctAnswers = 0; // Track the number of correct answers
-let wrongAnswers = 0; // Track the number of wrong answers
+const btnStart = document.querySelector("#start");
+const gameContentWrapper = document.querySelector("#game-content-wrapper");
+const localStorageData = getData();
+let currentQuestion = 0;
+let correctAnswers = 0;
+let wrongAnswers = 0;
 
 // Wait for the document to be loaded
 document.addEventListener("DOMContentLoaded", function () {
@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
  * @returns {boolean} - Returns false if username is empty.
  */
 function startGame() {
-    let difficulty = document.getElementById("difficulty").value;
-    let username = document.getElementById("username").value;
+    let difficulty = document.querySelector("#difficulty").value;
+    let username = document.querySelector("#username").value;
 
     // Check username, if empty, stop the game and send an alert.
     if (!checkUsername(username)) {
@@ -118,7 +118,7 @@ function handleButtonClick(event, correctAnswer) {
     // Proceed to the next question after a brief delay
     setTimeout(() => {
         showNextQuestion(document.getElementById("username").value, document.getElementById("difficulty").value);
-    }, 1500); // Add a timer for the user to see the wrong and correct answer.
+    }, 1200); // Add a timer for the user to see the wrong and correct answer.
 }
 
 // Find the button with the correct answer
