@@ -36,10 +36,19 @@ function startGame() {
             showNextQuestion(username, difficulty);
         })
         .catch(error => {
-            alert("Error while loading API data, the game will restart.");
-            console.error('Error fetching data:', error);
-            location.reload();
+            handleFetchError(error);
+            displayErrorMessage();
         });
+}
+
+function handleFetchError(error) {
+    alert("Error while loading API data, the game will restart.");
+    console.error('Error fetching data:', error);
+
+
+    setTimeout(() => {
+        location.reload();
+    }, 1000);
 }
 
 
