@@ -154,11 +154,11 @@ function disableButtons() {
  */
 function createWelcomeMessage(username, difficulty) {
     // Get the welcome message element
-    let welcomeMessageWrapper = document.getElementById("welcome-message-wrapper");
+    let welcomeMessageWrapper = document.querySelector("#welcome-message-wrapper");
     welcomeMessageWrapper.classList.remove("hidden");
     welcomeMessageWrapper.classList.add("show");
 
-    let welcomeMessage = document.getElementById("game-welcome-message");
+    let welcomeMessage = document.querySelector("#game-welcome-message");
 
     // Update the innerHTML
     welcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun!`;
@@ -220,8 +220,22 @@ function fetchData(difficulty) {
             localStorage.setItem('quizData', JSON.stringify(data.results));
         })
         .catch(error => {
+            displayErrorMessage();
             console.error('Error fetching data:', error);
         });
+}
+
+function displayErrorMessage() {
+    const errorWrapper = document.querySelector("#welcome-message-wrapper");
+    const errorMessage = document.querySelector("#error-message");
+    errorMessage.classList.remove("hidden");
+    errorMessage.classList.add("show");
+
+    errorMessage.innerHTML = `
+        There was a problem while trying to fetch the api data from external source.<br>
+        Please press the button bellow to start the game again or refresh the page via 
+        web broser.
+    `;
 }
 
 /**
