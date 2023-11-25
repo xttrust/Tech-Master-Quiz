@@ -48,6 +48,11 @@ function startGame() {
  * @param {string} difficulty - The difficulty level of the quiz.
  */
 function showNextQuestion(username, difficulty) {
+    if (localStorageData.length < 1) {
+        displayErrorMessage();
+        return false;
+    }
+
     if (currentQuestion < localStorageData.length) {
         let question = getFinalData(localStorageData[currentQuestion]);
 
