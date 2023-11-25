@@ -1,12 +1,12 @@
 # Welcome to TechMasterQuiz
 
-![TechMasterQuiz Logo](https://placehold.co/220x90?text=TechMasterQuiz+Logo)
+![TechMasterQuiz Logo](wireframes/logo.png)
 
 TechMasterQuiz game, a challenge for tech fans! Test your computer knowledge in a game about digital tech and computer questions on our quiz platform. Demonstrate your skills in this fun and educational adventure.
 
 TechMasterQuiz is designed for individuals eager to test their computer knowledge and for those keen on expanding their understanding of computers.
 
-![TechMasterQuiz Multiview image](https://placehold.co/1200x600?text=TechMasterQuiz+Multiview)
+![TechMasterQuiz Multiview image](wireframes/multiview.jpg)
 
 ## Table of Contents
 
