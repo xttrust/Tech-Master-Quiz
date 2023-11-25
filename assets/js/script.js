@@ -36,6 +36,7 @@ function startGame() {
             showNextQuestion(username, difficulty);
         })
         .catch(error => {
+            displayErrorMessage();
             console.error('Error fetching data:', error);
         });
 }
@@ -225,12 +226,15 @@ function fetchData(difficulty) {
         });
 }
 
+/**
+ * Show the error message wrapper
+ */
 function displayErrorMessage() {
     const errorWrapper = document.querySelector("#welcome-message-wrapper");
-    const errorMessage = document.querySelector("#error-message");
-    errorMessage.classList.remove("hidden");
-    errorMessage.classList.add("show");
+    errorWrapper.classList.remove("hidden");
+    errorWrapper.classList.add("show");
 
+    const errorMessage = document.querySelector("#error-message");
     errorMessage.innerHTML = `
         There was a problem while trying to fetch the api data from external source.<br>
         Please press the button bellow to start the game again or refresh the page via 
