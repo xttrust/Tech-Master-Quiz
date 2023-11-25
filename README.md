@@ -163,8 +163,11 @@ The wireframes are below:
 
 ### Features to be Implemented
 
-- Feature 1
-- Feature 2
+- **Social Network Login:** Enable users to effortlessly log in and share their scores through social networks.
+
+- **User Highscore:** Introduce a personalized highscore feature for each user, allowing them to track their performance.
+
+- **Global Scoreboard by Categories:** Implement a global scoreboard categorized by different quiz difficulty, providing a competitive element across users.
 
 [Back to Top](#table-of-contents)
 
