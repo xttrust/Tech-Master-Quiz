@@ -37,7 +37,6 @@ function startGame() {
         })
         .catch(error => {
             handleFetchError(error);
-            displayErrorMessage();
         });
 }
 
@@ -231,26 +230,11 @@ function fetchData(difficulty) {
             localStorage.setItem('quizData', JSON.stringify(data.results));
         })
         .catch(error => {
-            displayErrorMessage();
+            handleFetchError(error);
             console.error('Error fetching data:', error);
         });
 }
 
-/**
- * Show the error message wrapper
- */
-function displayErrorMessage() {
-    const errorWrapper = document.querySelector("#welcome-message-wrapper");
-    errorWrapper.classList.remove("hidden");
-    errorWrapper.classList.add("show");
-
-    const errorMessage = document.querySelector("#error-message");
-    errorMessage.innerHTML = `
-        There was a problem while trying to fetch the api data from external source.<br>
-        Please press the button bellow to start the game again or refresh the page via 
-        web broser.
-    `;
-}
 
 /**
  * Handles the response from a fetch request.
