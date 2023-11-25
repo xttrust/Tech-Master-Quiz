@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
  * @returns {boolean} 
  */
 function startGame() {
-    let difficulty = document.querySelector("#difficulty").value;
-    let username = document.querySelector("#username").value;
+    const difficulty = document.querySelector("#difficulty").value;
+    const username = document.querySelector("#username").value;
 
     if (!checkUsername(username)) {
         return false;

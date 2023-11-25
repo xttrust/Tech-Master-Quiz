@@ -2,7 +2,7 @@
 
 ![TechMasterQuiz Logo](https://placehold.co/220x90?text=TechMasterQuiz+Logo)
 
-TechMasterQuiz game, a challenge for tech fans! Test your computer knowledge in a game about digital tech and computer questions on our quiz platform. Show off your inner tech expert and demonstrate your skills in this fun and educational adventure.
+TechMasterQuiz game, a challenge for tech fans! Test your computer knowledge in a game about digital tech and computer questions on our quiz platform. Demonstrate your skills in this fun and educational adventure.
 
 TechMasterQuiz is designed for individuals eager to test their computer knowledge and for those keen on expanding their understanding of computers.
 
@@ -24,7 +24,6 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
     - [Structure](#structure)
 - [Wireframes](#wireframes)
   - [Features](#features)
-    - [Navigation Bar](#navigation-bar)
     - [Welcome Page](#welcome-page)
     - [Game Page](#game-page)
     - [Footer](#footer)
@@ -62,8 +61,6 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 - As a learner, I want to have access to a variety of quizzes covering different topics in technology, so that I can expand my knowledge in specific areas of interest.
 - As a quiz enthusiast, I want to easily sign in with my username so that I can track my progress and see personalized content based on my preferences.
 - As a user looking for a quick break, I want to be able to start a short quiz without having to go through a lengthy sign-up process, so that I can enjoy a quick and fun diversion.
-- As a social user, I want the option to share my quiz results on social media and challenge my friends, so that I can engage with others and showcase my achievements.
-- As a returning user, I want to see my previous quiz results and track my improvement over time, so that I can gauge my progress and set personal goals.
 - As a casual user, I want the quiz platform to have a visually appealing and user-friendly design, so that I can navigate through the questions easily and enjoy a pleasant experience.
 
 [Back to Top](#table-of-contents)
@@ -97,7 +94,7 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 ### Expectations
 
 - User Expectations:
-  - Users anticipate a seamless and intuitive registration process, allowing them to easily create an account with a unique username.
+  - Users expect a smooth and intuitive registration process, enabling easy account creation with a unique username.
 - Platform Accessibility:
   - Users expect the platform to be accessible on various devices, ensuring a consistent and user-friendly experience, whether on desktop or mobile.
 - Engaging Quiz Content:
@@ -157,8 +154,6 @@ The wireframes are below:
 [Back to Top](#table-of-contents)
 
 ## Features
-
-### Navigation Bar
 
 ### Welcome Page
 
