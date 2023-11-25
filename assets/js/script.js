@@ -198,21 +198,26 @@ function getFinalData(array) {
 }
 
 /**
- * CREDITS for (shuffleArray) = chatGPT
- * Shuffle an array using the Fisher-Yates algorithm
- * It iterates through the array backward, and for each element, 
- * it randomly selects an element from the remaining 
- * unshuffled elements and swaps them.
+ * Credits: 
+ * https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+ * Shuffle an array 
  * @param {Array} array - The array to be shuffled.
  * @returns {Array} - The shuffled array.
  */
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+    let currentIndex = array.length, randomIndex;
+
+    while (currentIndex > 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
     }
+
     return array;
 }
+
 
 /**
  * Fetches quiz data from the specified API based on the provided difficulty level.
