@@ -42,8 +42,6 @@ function startGame() {
 
 function handleFetchError(error) {
     alert("Error while loading API data, the game will restart.");
-    console.error('Error fetching data:', error);
-
 
     setTimeout(() => {
         location.reload();
