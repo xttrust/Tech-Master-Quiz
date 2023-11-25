@@ -173,6 +173,11 @@ The wireframes are below:
 
 ## Technologies used
 
+- **HTML**
+- **CSS**
+- **JS**
+- **API**
+
 ### Languages
 
 - [HTML](https://en.wikipedia.org/wiki/HTML "HTML")
@@ -189,9 +194,9 @@ The wireframes are below:
 - [Balsamic](https://balsamiq.com/wireframes/ "Balsamic")
 - [W3C HTML Validation Service](https://validator.w3.org/ "W3C HTML")
 - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/ "W3C CSS")
+- [jshint](https://jshint.com/ "jshint")
 - [Colorcombos](https://www.colorcombos.com "colorcombos")
 - [CSS Scan](https://getcssscan.com/css-box-shadow-examples "getcssscan.com")
-- [Squoosh](https://squoosh.app/ "squoosh.app")
 
 [Back to Top](#table-of-contents)
 
