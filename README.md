@@ -128,7 +128,7 @@ I will explain the uses of the various colors below, starting from top to bottom
 - clr-primary: #383e6e - This color will be used for section backgrounds and for body background pallete
 - clr-dark: #1e2140 - This collor will be used for body background pallete
 - clr-blue: #3d9df2 - This collor will be used for buttons and links
-- clr-tan: #f2e0bd - This color will be used for links in the footer and for icons
+- clr-tan: #f2e0bd - This color will be used for links and Headers
 - clr-red: #f00909 - This color will be used to display the wrong answers
 - clr-green: #09e73e - This color will be used to display the correct answers
 - clr-white: #ffffff - This color will be used for text
