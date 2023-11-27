@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
  * Starts the game  
  * @returns {boolean} 
  */
-async function startGame() {
+function startGame() {
     const difficulty = document.querySelector("#difficulty").value;
     const username = document.querySelector("#username").value;
 
@@ -31,21 +31,15 @@ async function startGame() {
     hideStartGameWrapper();
     hideHowToPlay();
 
-    try {
-        await fetchData(difficulty);
-        showNextQuestion(username, difficulty);
-    } catch (error) {
-        alert("Error while loading API data, the game will restart.");
-        console.error('Error fetching data:', error);
-        location.reload();
-    }
+    fetchData(difficulty)
+        .then(() => {
+            showNextQuestion(username, difficulty);
+        })
+        .catch(error => {
+            handleFetchError(error);
+        });
 }
 
-
-/**
- * Show an alert if the api data was not loaded.
- * @param {*} error 
- */
 function handleFetchError(error) {
     alert("Error while loading API data, the game will restart.");
 
@@ -235,11 +229,12 @@ function fetchData(difficulty) {
     return fetch(apiUrl)
         .then(handleResponse) // Handle the response (check for errors and parse as JSON)
         .then(data => {
-
+            localStorage.removeItem('quizData');
             localStorage.setItem('quizData', JSON.stringify(data.results));
         })
         .catch(error => {
             handleFetchError(error);
+            console.error('Error fetching data:', error);
         });
 }
 
