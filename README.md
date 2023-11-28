@@ -26,6 +26,7 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
   - [Features](#features)
     - [Welcome Page](#welcome-page)
     - [Game Page](#game-page)
+    - [Results Page](#results-page)
     - [Footer](#footer)
     - [Features to be implemented](#features-to-be-implemented)
 - [Technologies used](#technologies-used)
@@ -157,9 +158,57 @@ The wireframes are below:
 
 ### Welcome Page
 
-### Game Page
+- The welcome page serves as an introduction to the game, providing essential details about the rules and mechanics. Users have the opportunity to tailor their gaming experience by selecting a preferred difficulty level and entering a unique username. Visual cues in the accompanying pictures offer a step-by-step guide for these customization options.
+
+  Mobile View:
+
+![Mobile View](wireframes/mobile-welcome-page.png)
+
+  Tablet View:
+
+![Tablet View](wireframes/tablet-welcome-page.png)
+
+  Desktop View:
+
+![Desktop View](wireframes/desktop-welcome-page.png)
+
+## Game Page
+
+- The game page offers an engaging quiz experience, presenting a series of questions based on the selected difficulty level. Users are challenged to answer each question correctly within the allotted time. The interface is designed for intuitive navigation, with interactive elements for selecting answers. Visual feedback, such as highlighting correct and incorrect choices, enhances the gaming experience.
+
+ Mobile View:
+
+![Mobile View](wireframes/mobile-game-page.png)
+
+  Tablet View:
+
+![Tablet View](wireframes/tablet-game-page.png)
+
+  Desktop View:
+
+![Desktop View](wireframes/desktop-game-page.png)
+
+## Results Page
+
+- Upon completing the quiz, the results page displays the user's performance. A detailed summary includes the number of correct and incorrect answers. This section congratulates the player on their achievements and encourages further engagement. Users have the option to play again, restarting the quiz for another round of fun and challenge.
+
+ Mobile View:
+
+![Mobile View](wireframes/mobile-results-page.png)
+
+  Tablet View:
+
+![Tablet View](wireframes/tablet-results-page.png)
+
+  Desktop View:
+
+![Desktop View](wireframes/desktop-results-page.png)
 
 ### Footer
+
+The footer will be as simple as a text "For educational purposes only".
+
+![Multiview](wireframes/footer-page.png)
 
 ### Features to be Implemented
 
