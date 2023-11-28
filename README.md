@@ -251,11 +251,12 @@ The footer will be as simple as a text "For educational purposes only".
 
 ## Testing
 
-- The website has met the objectives set by all parties involved. It's responsive on various screen sizes, ensuring clean and crisp images without excessive empty space. Users can easily navigate and contact us through the contact form or social media. The content is concise, and the design is uncluttered, providing a user-friendly experience.
+- The game website accomplishes its objectives with a user-friendly design that is responsive to different screen sizes. The interface is clean, users can conveniently select their difficulty level, enter their username, and enjoy a smooth gaming experience.
 
-- While testing I didn't encounter any errors with the final project.
-- HTML (index.html) validator [results](wireframes/html-validate.jpg "W3C HTML")
-- CSS validator [results](wireframes/css-validate.jpg "W3C CSS")
+- While testing the code I didn't encounter any errors with the final project. Only on JSHint a few warnings.
+- HTML (index.html) validator [results](wireframes/html-validator.png "W3C HTML")
+- CSS validator [results](wireframes/css-validator.png "W3C CSS")
+- JSHint [results](wireframes/js-validator.png "JSHint")
 
 - The final project was tested using Google's Lighthouse on github pages. The results are below
 - Performance test for Mobile:
