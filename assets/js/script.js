@@ -48,7 +48,6 @@ function handleFetchError(error) {
     }, 1000);
 }
 
-
 /**
  * Display the next question
  * @param {string} username - The username of the player.
@@ -97,7 +96,6 @@ function showNextQuestion(username, difficulty) {
     }
 }
 
-
 /**
  * Handle the #start button click event
  * @param {*} event 
@@ -145,17 +143,6 @@ function findCorrectButton(correctAnswer) {
 }
 
 /**
- * Disable all buttons
- */
-function disableButtons() {
-    const answerButtons = document.querySelectorAll(".button");
-    answerButtons.forEach(button => {
-        button.disabled = true;
-    });
-}
-
-
-/**
  * Updates the welcome message based on username and difficulty
  * @param {string} username 
  * @param {string} difficulty 
@@ -170,6 +157,25 @@ function createWelcomeMessage(username, difficulty) {
 
     // Update the innerHTML
     welcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun!`;
+}
+
+/**
+ * Fetches quiz data from the specified API based on the provided difficulty level.
+ * Removes existing data from local storage and stores new data.
+ * @param {string} difficulty - The difficulty level for the quiz.
+ * @returns {Promise<void>} A Promise that resolves when the data is fetched and stored.
+ */
+function fetchData(difficulty) {
+    let apiUrl = 'https://opentdb.com/api.php?amount=10&category=18&difficulty=' + difficulty;
+
+    return fetch(apiUrl)
+        .then(handleResponse) // Handle the response (check for errors and parse as JSON)
+        .then(data => {
+            localStorage.setItem('quizData', JSON.stringify(data.results));
+        })
+        .catch(error => {
+            handleFetchError(error);
+        });
 }
 
 /**
@@ -196,6 +202,19 @@ function getFinalData(array) {
 }
 
 /**
+ * Handles the response from a fetch request.
+ * Throws an error if the response is not okay, otherwise parses the response as JSON.
+ * @param {Response} response - The response object from a fetch request.
+ * @returns {Promise<Object>} A Promise that resolves to the parsed JSON data.
+ */
+function handleResponse(response) {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+}
+
+/**
  * Credits: 
  * https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
  * Shuffle an array 
@@ -214,42 +233,6 @@ function shuffleArray(array) {
     }
 
     return array;
-}
-
-
-/**
- * Fetches quiz data from the specified API based on the provided difficulty level.
- * Removes existing data from local storage and stores new data.
- * @param {string} difficulty - The difficulty level for the quiz.
- * @returns {Promise<void>} A Promise that resolves when the data is fetched and stored.
- */
-function fetchData(difficulty) {
-    let apiUrl = 'https://opentdb.com/api.php?amount=10&category=18&difficulty=' + difficulty;
-
-    return fetch(apiUrl)
-        .then(handleResponse) // Handle the response (check for errors and parse as JSON)
-        .then(data => {
-            localStorage.removeItem('quizData');
-            localStorage.setItem('quizData', JSON.stringify(data.results));
-        })
-        .catch(error => {
-            handleFetchError(error);
-            console.error('Error fetching data:', error);
-        });
-}
-
-
-/**
- * Handles the response from a fetch request.
- * Throws an error if the response is not okay, otherwise parses the response as JSON.
- * @param {Response} response - The response object from a fetch request.
- * @returns {Promise<Object>} A Promise that resolves to the parsed JSON data.
- */
-function handleResponse(response) {
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    return response.json();
 }
 
 /**
@@ -352,6 +335,16 @@ function resetGame() {
 
     // Reload the page to start a new game
     location.reload();
+}
+
+/**
+ * Disable all buttons
+ */
+function disableButtons() {
+    const answerButtons = document.querySelectorAll(".button");
+    answerButtons.forEach(button => {
+        button.disabled = true;
+    });
 }
 
 /**
