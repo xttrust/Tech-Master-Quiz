@@ -1,5 +1,6 @@
 const btnStart = document.querySelector("#start");
 const gameContentWrapper = document.querySelector("#game-content-wrapper");
+const localStorageData = getData();
 let currentQuestion = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
  * Starts the game  
  * @returns {boolean} 
  */
-async function startGame() {
+function startGame() {
     const difficulty = document.querySelector("#difficulty").value;
     const username = document.querySelector("#username").value;
 
@@ -30,12 +31,13 @@ async function startGame() {
     hideStartGameWrapper();
     hideHowToPlay();
 
-    try {
-        await fetchData(difficulty);
-        showNextQuestion(username, difficulty);
-    } catch (error) {
-        handleFetchError(error);
-    }
+    fetchData(difficulty)
+        .then(() => {
+            showNextQuestion(username, difficulty);
+        })
+        .catch(error => {
+            handleFetchError(error);
+        });
 }
 
 function handleFetchError(error) {
