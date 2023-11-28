@@ -33,6 +33,7 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
   - [Languages](#languages)
   - [Tools](#tools)
 - [Testing](#testing)
+  - [Bugs](#bugs)
   - [Unfixed Bugs](#unfixed-bugs)
 - [Deployment](#deployment)
 - [Refactor](#refactor)
