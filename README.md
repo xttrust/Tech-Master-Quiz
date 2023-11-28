@@ -261,40 +261,27 @@ The footer will be as simple as a text "For educational purposes only".
 - The final project was tested using Google's Lighthouse on github pages. The results are below
 - Performance test for Mobile:
 
-![Performance test for mobile](wireframes/mobile-performance.jpg)
+![Performance test for mobile](wireframes/lighthouse-test-mobile.png)
 
 - Performance test for Desktop:
 
-![Performance test for mobile](wireframes/desktop-performance.jpg)
+![Performance test for mobile](wireframes/lighthouse-test-desktop.png)
 
-- When testing on Google Chrome mobile version I didn't like the default browser theme color so I've customized the browser's theme color to match the website's theme, ensuring that everything looks just the way I prefer it.
+- Just to make sure that on  Google Chrome mobile version looks nice I've customized the browser's theme color to match the website's theme.
 
 `
-<meta name="theme-color" content="#1e2140">
+<meta name="theme-color" content="#b86ad9">
 `
 
-- Using Mobile Simulator extension in Google Chrome I have tested the website on differite devices. Test results are listed below.
-
-| Device                |     Test 1     |       Test 2 | Result Test 1 | Result Test 2 |
-| --------------------- | :------------: | -----------: | ------------- | ------------- |
-| Samsung Galaxy S20    | Responsiveness |  Attractions | Passed        | Passed        |
-| Samsung Galaxy S21 FE | Responsiveness |  Menu Button | Passed        | Passed        |
-| iPad Air 4            | Responsiveness |         Menu | Passed        | Passed        |
-| Galaxy Tab S7         | Responsiveness |         Menu | Passed        | Passed        |
-| iPhone 5              | Responsiveness |  Menu Button | Passed        | Passed        |
-| iPhone X              | Responsiveness |      History | Passed        | Passed        |
-| iPhone 11             | Responsiveness |      Cuisine | Passed        | Passed        |
-| iPhone 12 Mini        | Responsiveness | Contact Form | Passed        | Passed        |
-| iPhone 13 PRO         | Responsiveness |  Menu Button | Passed        | Passed        |
-| Mackbook Air          | Responsiveness |         Menu | Passed        | Passed        |
-| Desktop               | Responsiveness |    Thank You | Passed        | Passed        |
-| Dell Latitude         | Responsiveness |         Menu | Passed        | Passed        |
+- The game has undergone thorough testing across various platforms, including real devices like the S21 FE, mobile simulators, and desktop environments. This ensures a consistent and enjoyable experience for users, regardless of the device they choose to play on.```
 
 ## Bugs
 
-- There are no bugs to fix in the final project
+- Due to my current limited knowledge of JavaScript, there is an issue with the asynchronous behavior of the game, particularly at the beginning. When the asynchronous data fetching encounters a problem, I've implemented error handling to catch the issue. In such cases, users will receive an alert notifying them that the API data failed to load, and the game will automatically refresh. This behavior occurs only the first time a user visits the site and has no browser data saved.
 
 ## Unfixed Bugs
+
+- When the asynchronous data fetching encounters a problem. (The first time you visit the website)
 
 [Back to Top](#table-of-contents)
 
@@ -306,7 +293,7 @@ After writing the code, committing, and pushing it to GitHub, the project was de
 - In the side navigation, select **Pages**
 - In the **None** dropdown, choose **main**
 - Click the **Save** button.
-- The website is now live at `https://USERNAME.github.io/explore-romania/`
+- The website is now live at `https://USERNAME.github.io/Tech-Master-Quiz/`
 - If any changes are needed, you can make them, commit, and push to GitHub, and the updates will be reflected on the website.
 
 [Back to Top](#table-of-contents)
@@ -314,5 +301,18 @@ After writing the code, committing, and pushing it to GitHub, the project was de
 ### Refactor
 
 ### Credits
+
+For help and advice
+
+- [Simen Daehlin](https://github.com/Eventyret "Simen Daehlin")
+
+For api data
+
+- [opentdb](opentdb.com "opentdb")
+
+For array shuffle
+
+- [stackoverflow.com](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+ "stackoverflow.com")
 
 [Back to Top](#table-of-contents)
