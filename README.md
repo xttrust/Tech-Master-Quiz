@@ -60,7 +60,7 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 ### User Stories
 
 - As a learner, I want to have access to a variety of quizzes covering different topics in technology, so that I can expand my knowledge in specific areas of interest.
-- As a quiz enthusiast, I want to easily sign in with my username so that I can track my progress and see personalized content based on my preferences.
+- As a quiz enthusiast, I want to easily sign in with my username.
 - As a user looking for a quick break, I want to be able to start a short quiz without having to go through a lengthy sign-up process, so that I can enjoy a quick and fun diversion.
 - As a casual user, I want the quiz platform to have a visually appealing and user-friendly design, so that I can navigate through the questions easily and enjoy a pleasant experience.
 
@@ -314,5 +314,10 @@ For array shuffle
 
 - [stackoverflow.com](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
  "stackoverflow.com")
+
+For async function:
+
+- [Google.com](google.com "Google.com")
+- [ChatGPT](chat.openai.com "ChatGPT")
 
 [Back to Top](#table-of-contents)
