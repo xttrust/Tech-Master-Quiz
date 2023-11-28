@@ -145,11 +145,11 @@ For wireframing to vissually structuire and play the layout and design of the we
 
 The wireframes are below:
 
-### [Desktop Wireframe](wireframes/layout-desktop.png "Desktop wireframe")
+### [Desktop Wireframe](wireframes/wireframe-desktop.png "Desktop wireframe")
 
-### [Tablet Wireframe](wireframes/layout-tablet.png "Tablet wireframe")
+### [Tablet Wireframe](wireframes/wireframe-tablet.png "Tablet wireframe")
 
-### [Phone Wireframe](wireframes/layout-mobile.png "Phone wireframe")
+### [Phone Wireframe](wireframes/wireframe-mobile.png "Phone wireframe")
 
 [Back to Top](#table-of-contents)
 
