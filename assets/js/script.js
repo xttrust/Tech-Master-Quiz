@@ -203,9 +203,8 @@ function getFinalData(array) {
 
 /**
  * Handles the response from a fetch request.
- * Throws an error if the response is not okay, otherwise parses the response as JSON.
- * @param {Response} response - The response object from a fetch request.
- * @returns {Promise<Object>} A Promise that resolves to the parsed JSON data.
+ * @param {Response} response 
+ * @returns {Promise<Object>}
  */
 function handleResponse(response) {
     if (!response.ok) {
