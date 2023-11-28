@@ -320,4 +320,9 @@ For async function:
 - [Google.com](google.com "Google.com")
 - [ChatGPT](chat.openai.com "ChatGPT")
 
+For CSS
+
+- [Background Gradient](https://mycolor.space/ "mycolor.space")
+- [CSS Normalize](https://github.com/necolas/normalize.css "CSS Normalize")
+
 [Back to Top](#table-of-contents)

@@ -29,7 +29,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
     font-family: "Montserrat", sans-serif;
-    /* Credits for this normalize 
+    /* Credits for this: normalize 
     * https://gist.github.com/marharyta/b83a3683085eb42867bbcefb34687af8 */
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
