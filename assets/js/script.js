@@ -304,8 +304,18 @@ function displayScore(username) {
  */
 function displayScoreMessage(username) {
     let scoreMessage = document.getElementById("score-message");
+    let startMessage = "";
+
+    if (correctAnswers < 5) {
+        startMessage = "You can do better,";
+    } else if (correctAnswers >= 5 && correctAnswers <= 8) {
+        startMessage = "Not bad,";
+    } else if (correctAnswers > 8) {
+        startMessage = "Well done,";
+    }
+
     scoreMessage.innerHTML = `
-        Well done, <strong>${username}!</strong> Here are the results of your answers:<br><br>
+        ${startMessage} <strong>${username}!</strong> Here are the results of your answers:<br><br>
         <strong>Correct Answers:</strong> <span class="text-green">${correctAnswers}</span><br>
         <strong>Incorrect Answers:</strong> <span class="text-red">${wrongAnswers}</span>
     `;
