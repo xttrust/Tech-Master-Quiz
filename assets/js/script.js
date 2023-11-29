@@ -1,51 +1,49 @@
+// Declare variables at the top level to make them accessible throughout the script
 const btnStart = document.querySelector("#start");
 const gameContentWrapper = document.querySelector("#game-content-wrapper");
-const localStorageData = getData();
 let currentQuestion = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
+let quizData;
 
 // Wait for the document to be loaded
 document.addEventListener("DOMContentLoaded", function () {
-    btnStart.addEventListener("click", function (event) {
+    // Add event listener for the start button click
+    btnStart.addEventListener("click", async function (event) {
         event.preventDefault();
-        startGame();
+        // Get the selected difficulty and username from the input fields
+        const difficulty = document.querySelector("#difficulty").value;
+        const username = document.querySelector("#username").value;
+        try {
+            // Fetch quiz data and start the game
+            quizData = await fetchData(difficulty);
+            startGame(difficulty, username);
+        } catch (error) {
+            // Handle fetch error
+            handleFetchError(error);
+        }
     });
 });
 
 /**
- * Starts the game  
- * @returns {boolean} 
+ * Starts the game
+ * @param {string} difficulty - The selected difficulty level.
+ * @param {string} username - The entered username.
+ * @returns {boolean}
  */
-function startGame() {
-    const difficulty = document.querySelector("#difficulty").value;
-    const username = document.querySelector("#username").value;
-
+async function startGame(difficulty, username) {
+    // Check if the username is valid
     if (!checkUsername(username)) {
         return false;
     }
 
-    // Start the game
+    // Display game elements and start the game
     showGame();
-
     hideStartGameWrapper();
     hideHowToPlay();
 
-    fetchData(difficulty)
-        .then(() => {
-            showNextQuestion(username, difficulty);
-        })
-        .catch(error => {
-            handleFetchError(error);
-        });
-}
-
-function handleFetchError(error) {
-    alert("Error while loading API data, the game will restart.");
-
-    setTimeout(() => {
-        location.reload();
-    }, 1000);
+    // Show the first question
+    showNextQuestion(username, difficulty);
 }
 
 /**
@@ -54,18 +52,20 @@ function handleFetchError(error) {
  * @param {string} difficulty - The difficulty level of the quiz.
  */
 function showNextQuestion(username, difficulty) {
-    if (currentQuestion < localStorageData.length) {
-        let question = getFinalData(localStorageData[currentQuestion]);
+    // Check if there are more questions to display
+    if (currentQuestion < quizData.length) {
+        // Get data for the current question
+        let question = getFinalData(quizData[currentQuestion]);
 
         // Clear previous content
         gameContentWrapper.innerHTML = "";
 
-        // Display the welcome message
+        // Display welcome message
         createWelcomeMessage(username, difficulty);
 
-        // Display the progress text
+        // Display progress text
         let progressText = document.createElement("p");
-        progressText.innerHTML = `Question ${currentQuestion + 1} out of ${localStorageData.length}`;
+        progressText.innerHTML = `Question ${currentQuestion + 1} out of ${quizData.length}`;
         gameContentWrapper.appendChild(progressText);
 
         // Display the question
@@ -92,19 +92,21 @@ function showNextQuestion(username, difficulty) {
 
         currentQuestion++;
     } else {
+        // No more questions, display final score
         displayScore(username);
     }
 }
 
 /**
  * Handle the #start button click event
- * @param {*} event 
- * @param {*} correctAnswer 
+ * @param {*} event
+ * @param {*} correctAnswer
  */
 function handleButtonClick(event, correctAnswer) {
     let selectedButton = event.target;
     let userAnswer = selectedButton.getAttribute("data-value");
 
+    // Check if the user's answer is correct
     if (userAnswer === correctAnswer) {
         correctAnswers++;
         selectedButton.classList.add("button-green");
@@ -119,6 +121,7 @@ function handleButtonClick(event, correctAnswer) {
         }
     }
 
+    // Disable all buttons
     disableButtons();
 
     // Proceed to the next question after a brief delay
@@ -129,8 +132,8 @@ function handleButtonClick(event, correctAnswer) {
 
 /**
  * Find the button with the correct answer
- * @param {*} correctAnswer 
- * @returns 
+ * @param {*} correctAnswer
+ * @returns {HTMLElement|null}
  */
 function findCorrectButton(correctAnswer) {
     const answerButtons = document.querySelectorAll(".button");
@@ -144,8 +147,8 @@ function findCorrectButton(correctAnswer) {
 
 /**
  * Updates the welcome message based on username and difficulty
- * @param {string} username 
- * @param {string} difficulty 
+ * @param {string} username
+ * @param {string} difficulty
  */
 function createWelcomeMessage(username, difficulty) {
     // Get the welcome message element
@@ -163,19 +166,26 @@ function createWelcomeMessage(username, difficulty) {
  * Fetches quiz data from the specified API based on the provided difficulty level.
  * Removes existing data from local storage and stores new data.
  * @param {string} difficulty - The difficulty level for the quiz.
- * @returns {Promise<void>} A Promise that resolves when the data is fetched and stored.
+ * @returns {Promise<Array>} A Promise that resolves to an array of quiz data.
  */
-function fetchData(difficulty) {
+async function fetchData(difficulty) {
     let apiUrl = 'https://opentdb.com/api.php?amount=10&category=18&difficulty=' + difficulty;
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    return data.results;
+}
 
-    return fetch(apiUrl)
-        .then(handleResponse) // Handle the response (check for errors and parse as JSON)
-        .then(data => {
-            localStorage.setItem('quizData', JSON.stringify(data.results));
-        })
-        .catch(error => {
-            handleFetchError(error);
-        });
+/**
+ * Will handle the fetch API error
+ * @param {*} error
+ */
+function handleFetchError(error) {
+    alert("Error while loading API data, the game will restart.");
+
+    // Reload the page after a short delay
+    setTimeout(() => {
+        location.reload();
+    }, 1000);
 }
 
 /**
@@ -190,6 +200,7 @@ function getFinalData(array) {
 
     incorrectAnswersCopy.push(array.correct_answer);
 
+    // Shuffle the combined array
     let shuffledAnswers = shuffleArray(incorrectAnswersCopy);
 
     let result = {
@@ -202,23 +213,10 @@ function getFinalData(array) {
 }
 
 /**
- * Handles the response from a fetch request.
- * @param {Response} response 
- * @returns {Promise<Object>}
- */
-function handleResponse(response) {
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    return response.json();
-}
-
-/**
- * Credits: 
- * https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
- * Shuffle an array 
+ * Shuffle an array
  * @param {Array} array - The array to be shuffled.
  * @returns {Array} - The shuffled array.
+ * @see https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
  */
 function shuffleArray(array) {
     let currentIndex = array.length, randomIndex;
@@ -228,19 +226,11 @@ function shuffleArray(array) {
         currentIndex--;
 
         [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
+            array[randomIndex], array[currentIndex]
+        ];
     }
 
     return array;
-}
-
-/**
- * This function retrieves the data from local storage and parses it.
- * @returns {Array} The parsed data or null if no data is found.
- */
-function getData() {
-    let storedData = localStorage.getItem('quizData');
-    return JSON.parse(storedData);
 }
 
 /**
@@ -265,7 +255,7 @@ function hideStartGameWrapper() {
 }
 
 /**
- * Hide how to play section
+ * Hide the how to play section
  */
 function hideHowToPlay() {
     let howToPlayWrapper = document.getElementById("how-to-play");
@@ -282,9 +272,10 @@ function showGame() {
 
 /**
  * Display the score
+ * @param {string} username - The username of the player.
  */
 function displayScore(username) {
-    // Hide the game wrapper 
+    // Hide the game wrapper
     let gameWrapper = document.getElementById("game-content-wrapper");
     gameWrapper.classList.add("hidden");
 
@@ -299,7 +290,7 @@ function displayScore(username) {
 
 /**
  * Display the final score messages and a button to reset the game
- * @param {*} username 
+ * @param {string} username - The username of the player.
  */
 function displayScoreMessage(username) {
     let scoreMessage = document.getElementById("score-message");
@@ -313,6 +304,7 @@ function displayScoreMessage(username) {
         startMessage = "Well done,";
     }
 
+    // Display the score message
     scoreMessage.innerHTML = `
         ${startMessage} <strong>${username}!</strong> Here are the results of your answers:<br><br>
         <strong>Correct Answers:</strong> <span class="text-green">${correctAnswers}</span><br>
@@ -357,7 +349,7 @@ function disableButtons() {
 }
 
 /**
- * Toggle the how to play list
+ * Toggle the how to play list visibility
  */
 function toggleHowToPlayList() {
     let howToPlayList = document.getElementById("how-to-play-list");
@@ -374,4 +366,3 @@ function toggleHowToPlayList() {
         buttonIcon.classList.add("fa-minus");
     }
 }
-
