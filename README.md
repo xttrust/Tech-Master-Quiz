@@ -274,7 +274,7 @@ The footer will be as simple as a text "For educational purposes only".
 <meta name="theme-color" content="#1e2140">
 `
 
-- The game has undergone thorough testing across various platforms, including real devices like the S21 FE, mobile simulators, and desktop environments. This ensures a consistent and enjoyable experience for users, regardless of the device they choose to play on.```
+- The game has undergone thorough testing across various platforms, including real devices like the S21 FE, mobile simulators, and desktop environments. This ensures a consistent and enjoyable experience for users, regardless of the device they choose to play on.
 
 ## Bugs
 
@@ -319,7 +319,7 @@ For array shuffle
 For async function:
 
 - [Google.com](google.com "Google.com")
-- [ChatGPT](chat.openai.com "ChatGPT")
+- [Fetch API - JavaScript Tutorial for beginners](https://www.youtube.com/watch?v=ubw2hdQIl4E&t=1066s "ColorCode")
 
 For CSS
 
