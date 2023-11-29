@@ -1,4 +1,3 @@
-// Declare variables at the top level to make them accessible throughout the script
 const btnStart = document.querySelector("#start");
 const gameContentWrapper = document.querySelector("#game-content-wrapper");
 let currentQuestion = 0;
@@ -37,12 +36,10 @@ async function startGame(difficulty, username) {
         return false;
     }
 
-    // Display game elements and start the game
     showGame();
     hideStartGameWrapper();
     hideHowToPlay();
 
-    // Show the first question
     showNextQuestion(username, difficulty);
 }
 
@@ -142,7 +139,7 @@ function findCorrectButton(correctAnswer) {
             return button;
         }
     }
-    return null; // Return null if the correct button is not found
+    return null;
 }
 
 /**
@@ -151,20 +148,16 @@ function findCorrectButton(correctAnswer) {
  * @param {string} difficulty
  */
 function createWelcomeMessage(username, difficulty) {
-    // Get the welcome message element
     let welcomeMessageWrapper = document.querySelector("#welcome-message-wrapper");
     welcomeMessageWrapper.classList.remove("hidden");
     welcomeMessageWrapper.classList.add("show");
 
     let welcomeMessage = document.querySelector("#game-welcome-message");
-
-    // Update the innerHTML
     welcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun!`;
 }
 
 /**
  * Fetches quiz data from the specified API based on the provided difficulty level.
- * Removes existing data from local storage and stores new data.
  * @param {string} difficulty - The difficulty level for the quiz.
  * @returns {Promise<Array>} A Promise that resolves to an array of quiz data.
  */
@@ -182,7 +175,6 @@ async function fetchData(difficulty) {
 function handleFetchError(error) {
     alert("Error while loading API data, the game will restart.");
 
-    // Reload the page after a short delay
     setTimeout(() => {
         location.reload();
     }, 1000);
