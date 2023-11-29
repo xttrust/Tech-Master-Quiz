@@ -34,9 +34,9 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
   - [Tools](#tools)
 - [Testing](#testing)
   - [Bugs](#bugs)
+  - [Fixed Bugs](#fixed-bugs)
   - [Unfixed Bugs](#unfixed-bugs)
 - [Deployment](#deployment)
-- [Refactor](#refactor)
 - [Credits](#credits)
 
 ## UX
@@ -175,7 +175,7 @@ The wireframes are below:
 
 ## Game Page
 
-- The game page offers an engaging quiz experience, presenting a series of questions based on the selected difficulty level. Users are challenged to answer each question correctly within the allotted time. The interface is designed for intuitive navigation, with interactive elements for selecting answers. Visual feedback, such as highlighting correct and incorrect choices, enhances the gaming experience.
+- The game page offers an engaging quiz experience, presenting a series of questions based on the selected difficulty level. Users are challenged to answer each question correctly. The interface is designed for intuitive navigation, with interactive elements for selecting answers. Visual feedback, such as highlighting correct and incorrect choices, enhances the gaming experience.
 
  Mobile View:
 
@@ -280,7 +280,9 @@ The footer will be as simple as a text "For educational purposes only".
 
 - While creating the game I encountered an issue with the asynchronous behavior of the game. This behavior occurs only the first time a user visits the site and has no browser data saved. I've implemented error handling to catch the issue. In such cases, users will receive an alert notifying them that the API data failed to load.
 
-- But after many hours of research and youtube tutorials I have rewriten the code and fixed all errors.
+## Fixed Bugs
+
+- After many hours of research and youtube tutorials I have rewriten the code and fixed all errors.
 
 ## Unfixed Bugs
 
