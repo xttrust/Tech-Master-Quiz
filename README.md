@@ -318,7 +318,7 @@ For array shuffle
 
 For async function:
 
-- [Google.com](google.com "Google.com")
+- [Google.com](https://www.google.com "Google.com")
 - [Fetch API - JavaScript Tutorial for beginners](https://www.youtube.com/watch?v=ubw2hdQIl4E&t=1066s "ColorCode")
 
 For CSS
