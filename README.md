@@ -278,11 +278,13 @@ The footer will be as simple as a text "For educational purposes only".
 
 ## Bugs
 
-- Due to my current limited knowledge of JavaScript, there is an issue with the asynchronous behavior of the game, particularly at the beginning. When the asynchronous data fetching encounters a problem, I've implemented error handling to catch the issue. In such cases, users will receive an alert notifying them that the API data failed to load, and the game will automatically refresh. This behavior occurs only the first time a user visits the site and has no browser data saved.
+- While creating the game I encountered an issue with the asynchronous behavior of the game. This behavior occurs only the first time a user visits the site and has no browser data saved. I've implemented error handling to catch the issue. In such cases, users will receive an alert notifying them that the API data failed to load.
+
+- But after many hours of research and youtube tutorials I have rewriten the code and fixed all errors.
 
 ## Unfixed Bugs
 
-- When the asynchronous data fetching encounters a problem. (The first time you visit the website)
+- There are no unfixed bugs.
 
 [Back to Top](#table-of-contents)
 
@@ -298,8 +300,6 @@ After writing the code, committing, and pushing it to GitHub, the project was de
 - If any changes are needed, you can make them, commit, and push to GitHub, and the updates will be reflected on the website.
 
 [Back to Top](#table-of-contents)
-
-### Refactor
 
 ### Credits
 
