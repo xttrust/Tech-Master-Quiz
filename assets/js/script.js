@@ -6,6 +6,7 @@ const buttonIconRef = document.querySelector(".close-button i.fa-solid");
 const startGameWrapperRef = document.querySelector("#start-game-wrapper");
 const howToPlayWrapperRef = document.querySelector("#how-to-play");
 const gameWrapperRef = document.querySelector("#game-content-wrapper");
+const scoreMessageRef = document.querySelector("#score-message");
 
 let currentQuestion = 0;
 let correctAnswers = 0;
@@ -73,6 +74,43 @@ const disableButtons = () => {
     });
 };
 
+
+/**
+ * Display the final score messages and a button to reset the game
+ * @param {string} username - The username of the player.
+ */
+const displayScoreMessage = (username) => {
+
+    let startMessage = "";
+
+    if (correctAnswers < 5) {
+        startMessage = "You can do better,";
+    } else if (correctAnswers >= 5 && correctAnswers <= 8) {
+        startMessage = "Not bad,";
+    } else if (correctAnswers > 8) {
+        startMessage = "Well done,";
+    }
+
+    // Display the score message
+    scoreMessageRef.innerHTML = `
+        ${startMessage} <strong>${username}!</strong> Here are the results of your answers:<br><br>
+        <strong>Correct Answers:</strong> <span class="text-green">${correctAnswers}</span><br>
+        <strong>Incorrect Answers:</strong> <span class="text-red">${wrongAnswers}</span>
+    `;
+
+    // Add a button to play again
+    let playAgainButton = document.createElement("button");
+    playAgainButton.type = "button";
+    playAgainButton.classList.add("button");
+    playAgainButton.classList.add("d-block");
+    playAgainButton.innerHTML = "Play Again";
+
+    // Add an event listener to the play again button
+    playAgainButton.addEventListener("click", resetGame);
+
+    // Add the button to the score message
+    scoreMessageRef.appendChild(playAgainButton);
+}
 
 
 
@@ -350,42 +388,7 @@ function displayScore(username) {
     displayScoreMessage(username);
 }
 
-/**
- * Display the final score messages and a button to reset the game
- * @param {string} username - The username of the player.
- */
-function displayScoreMessage(username) {
-    let scoreMessage = document.querySelector("#score-message");
-    let startMessage = "";
 
-    if (correctAnswers < 5) {
-        startMessage = "You can do better,";
-    } else if (correctAnswers >= 5 && correctAnswers <= 8) {
-        startMessage = "Not bad,";
-    } else if (correctAnswers > 8) {
-        startMessage = "Well done,";
-    }
-
-    // Display the score message
-    scoreMessage.innerHTML = `
-        ${startMessage} <strong>${username}!</strong> Here are the results of your answers:<br><br>
-        <strong>Correct Answers:</strong> <span class="text-green">${correctAnswers}</span><br>
-        <strong>Incorrect Answers:</strong> <span class="text-red">${wrongAnswers}</span>
-    `;
-
-    // Add a button to play again
-    let playAgainButton = document.createElement("button");
-    playAgainButton.type = "button";
-    playAgainButton.classList.add("button");
-    playAgainButton.classList.add("d-block");
-    playAgainButton.innerHTML = "Play Again";
-
-    // Add an event listener to the play again button
-    playAgainButton.addEventListener("click", resetGame);
-
-    // Add the button to the score message
-    scoreMessage.appendChild(playAgainButton);
-}
 
 
 
