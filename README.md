@@ -252,6 +252,7 @@ The footer will be as simple as a text "For educational purposes only".
 - [jshint](https://jshint.com/ "jshint")
 - [Colorcombos](https://www.colorcombos.com "colorcombos")
 - [CSS Scan](https://getcssscan.com/css-box-shadow-examples "getcssscan.com")
+- [opentdb](opentdb.com "opentdb")
 
 [Back to Top](#table-of-contents)
 
