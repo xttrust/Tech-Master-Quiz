@@ -112,7 +112,6 @@ const displayScoreMessage = (username) => {
     scoreMessageRef.appendChild(playAgainButton);
 }
 
-
 /**
  * Display the score
  * @param {string} username - The username of the player.
@@ -125,6 +124,18 @@ const displayScore = (username) => {
 
     displayScoreMessage(username);
 }
+
+/**
+ * Fetches quiz data from the specified API based on the provided difficulty level.
+ * @param {string} difficulty - The difficulty level for the quiz.
+ * @returns {Promise<Array>} A Promise that resolves to an array of quiz data.
+ */
+const fetchData = async (difficulty) => {
+    let apiUrl = 'https://opentdb.com/api.php?amount=10&category=18&difficulty=' + difficulty;
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    return data.results;
+};
 
 
 
@@ -317,17 +328,7 @@ function createWelcomeMessage(username, difficulty) {
     welcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun!`;
 }
 
-/**
- * Fetches quiz data from the specified API based on the provided difficulty level.
- * @param {string} difficulty - The difficulty level for the quiz.
- * @returns {Promise<Array>} A Promise that resolves to an array of quiz data.
- */
-async function fetchData(difficulty) {
-    let apiUrl = 'https://opentdb.com/api.php?amount=10&category=18&difficulty=' + difficulty;
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    return data.results;
-}
+
 
 /**
  * Will handle the fetch API error
