@@ -1,18 +1,66 @@
-const btnStart = document.querySelector("#start");
+const btnStartRef = document.querySelector("#start");
 const gameContentWrapper = document.querySelector("#game-content-wrapper");
 const howToPlayButtonToggle = document.querySelector("#howToPlayButtonToggle");
 const howToPlayList = document.querySelector("#how-to-play-list");
-const buttonIcon = document.querySelector(".close-button i.fa-solid");
+const buttonIconRef = document.querySelector(".close-button i.fa-solid");
+const startGameWrapperRef = document.querySelector("#start-game-wrapper");
+const howToPlayWrapperRef = document.querySelector("#how-to-play");
+const gameWrapperRef = document.querySelector("#game-content-wrapper");
+
 let currentQuestion = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
 let quizData;
 
+
+
+
+/**
+ * Check empty values for username
+ * @param {string} username - The username to be checked.
+ * @returns {boolean} - Returns true if the username is not empty.
+ */
+const checkUsername = (username) => {
+    if (!username) {
+        alert("Please enter a username.");
+        return false;
+    }
+    return true;
+}
+
+/**
+ * Hide the start game section
+ */
+const hideStartGameWrapper = () => {
+    startGameWrapperRef.classList.add("hidden");
+};
+
+/**
+ * Hide the how to play section
+ */
+const hideHowToPlay = () => {
+    howToPlayWrapperRef.classList.add("hidden");
+};
+
+/**
+ * Display the game wrapper
+ */
+const showGame = () => {
+    gameWrapperRef.style.display = "block";
+};
+
+
+
+
+
+
+
+
 // Wait for the document to be loaded
 document.addEventListener("DOMContentLoaded", function () {
 
     // Add event listener for the start button click
-    btnStart.addEventListener("click", async function (event) {
+    btnStartRef.addEventListener("click", async function (event) {
         event.preventDefault();
         // Get the selected difficulty and username from the input fields
         const difficulty = document.querySelector("#difficulty").value;
@@ -35,16 +83,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (howToPlayList.classList.contains("hidden")) {
             // Container is hidden, change the icon to plus
-            buttonIcon.classList.remove("fa-minus");
-            buttonIcon.classList.add("fa-plus");
+            buttonIconRef.classList.remove("fa-minus");
+            buttonIconRef.classList.add("fa-plus");
         } else {
             // Container is visible, change the icon to minus
-            buttonIcon.classList.remove("fa-plus");
-            buttonIcon.classList.add("fa-minus");
+            buttonIconRef.classList.remove("fa-plus");
+            buttonIconRef.classList.add("fa-minus");
         }
     })
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -247,42 +307,7 @@ function shuffleArray(array) {
     return array;
 }
 
-/**
- * Check empty values for username
- * @param {string} username - The username to be checked.
- * @returns {boolean} - Returns true if the username is not empty.
- */
-function checkUsername(username) {
-    if (!username) {
-        alert("Please enter a username.");
-        return false;
-    }
-    return true;
-}
 
-/**
- * Hide the start game section
- */
-function hideStartGameWrapper() {
-    let startGameWrapper = document.querySelector("#start-game-wrapper");
-    startGameWrapper.classList.add("hidden");
-}
-
-/**
- * Hide the how to play section
- */
-function hideHowToPlay() {
-    let howToPlayWrapper = document.querySelector("#how-to-play");
-    howToPlayWrapper.classList.add("hidden");
-}
-
-/**
- * Display the game wrapper
- */
-function showGame() {
-    let gameWrapper = document.querySelector("#game-content-wrapper");
-    gameWrapper.style.display = "block";
-}
 
 /**
  * Display the score
