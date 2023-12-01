@@ -1,7 +1,7 @@
-/* Import Fonts from Google: Montserrat and Roboto */
+/* ====== Import Fonts from Google: Montserrat and Roboto ====== */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
 
-/* Reset */
+/* ====== Reset ====== */
 :root {
     --clr-pink: #b86ad9;
     --clr-primary: #383e6e;
@@ -43,9 +43,9 @@ html {
     width: device-width;
 }
 
-/* End Credits */
+/* ====== End Credits ====== */
 
-/* Main CSS */
+/* ====== Main CSS ====== */
 body {
     min-height: 100vh;
     font-size: 1.6rem;
@@ -102,7 +102,7 @@ select {
     border-radius: 2rem;
 }
 
-/* Standard classes */
+/* ====== Standard classes ====== */
 .wrapper {
     position: relative;
     z-index: 99;
@@ -189,12 +189,12 @@ select {
 }
 
 
-/* Header */
+/* ====== Header ====== */
 header {
     position: relative;
 }
 
-/* Logo */
+/* ====== Logo ====== */
 #logo-img {
     width: 5rem;
     height: auto;
@@ -211,7 +211,7 @@ header {
     font-size: 2.6rem;
 }
 
-/* Main */
+/* ====== Main ====== */
 main {
     box-sizing: border-box;
     flex: 1 0 auto;
@@ -219,26 +219,26 @@ main {
     flex-direction: column;
 }
 
-/* How to play */
+/* ====== How to play ====== */
 #how-to-play {
     height: auto;
 }
 
 
-/* Start game wrapper*/
+/* ====== Start game wrapper ====== */
 #start-game {
     opacity: 1;
     visibility: visible;
     transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
 }
 
-/* Start content wrapper*/
+/* ====== Start content wrapper ====== */
 #game-content-wrapper {
     display: none;
 }
 
 
-/* Footer */
+/* ====== Footer ====== */
 footer {
     position: sticky;
     bottom: 0;
