@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         howToPlayList.classList.toggle("hidden");
 
-        buttonIcon = document.querySelector(".close-button i.fa-solid");
         if (howToPlayList.classList.contains("hidden")) {
             // Container is hidden, change the icon to plus
             buttonIcon.classList.remove("fa-minus");
@@ -57,9 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
  */
 async function startGame(difficulty, username) {
     // Check if the username is valid
-    if (!checkUsername(username)) {
-        return false;
-    }
+    if (!checkUsername(username)) return;
 
     showGame();
     hideStartGameWrapper();
