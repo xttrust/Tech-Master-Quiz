@@ -207,30 +207,52 @@ const createWelcomeMessage = (username, difficulty) => {
     welcomeMessageRef.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun!`;
 }
 
-
-
-
-
-
-
-
-
+/**
+ * Find the button with the correct answer
+ * @param {*} correctAnswer
+ * @returns {HTMLElement|null}
+ */
+const findCorrectButton = (correctAnswer) => {
+    const answerButtons = document.querySelectorAll(".button");
+    for (const button of answerButtons) {
+        if (button.getAttribute("data-value") === correctAnswer) {
+            return button;
+        }
+    }
+    return null;
+}
 
 /**
- * Starts the game
- * @param {string} difficulty - The selected difficulty level.
- * @param {string} username - The entered username.
- * @returns {boolean}
+ * Handle the #start button click event
+ * @param {*} event
+ * @param {*} correctAnswer
  */
-async function startGame(difficulty, username) {
-    // Check if the username is valid
-    if (!checkUsername(username)) return;
+const handleButtonClick = (event, correctAnswer) => {
+    let selectedButton = event.target;
+    let userAnswer = selectedButton.getAttribute("data-value");
 
-    showGame();
-    hideStartGameWrapper();
-    hideHowToPlay();
+    // Check if the user's answer is correct
+    if (userAnswer === correctAnswer) {
+        correctAnswers++;
+        selectedButton.classList.add("button-green");
+    } else {
+        wrongAnswers++;
+        selectedButton.classList.add("button-red");
 
-    showNextQuestion(username, difficulty);
+        // Find and highlight the button with the correct answer
+        const correctButton = findCorrectButton(correctAnswer);
+        if (correctButton) {
+            correctButton.classList.add("button-green");
+        }
+    }
+
+    // Disable all buttons
+    disableButtons();
+
+    // Proceed to the next question after a brief delay
+    setTimeout(() => {
+        showNextQuestion(document.querySelector("#username").value, document.querySelector("#difficulty").value);
+    }, 1200); // Add a timer for the user to see the wrong and correct answer.
 }
 
 /**
@@ -238,7 +260,7 @@ async function startGame(difficulty, username) {
  * @param {string} username - The username of the player.
  * @param {string} difficulty - The difficulty level of the quiz.
  */
-function showNextQuestion(username, difficulty) {
+const showNextQuestion = (username, difficulty) => {
     // Check if there are more questions to display
     if (currentQuestion < quizData.length) {
         // Get data for the current question
@@ -284,53 +306,33 @@ function showNextQuestion(username, difficulty) {
     }
 }
 
-/**
- * Handle the #start button click event
- * @param {*} event
- * @param {*} correctAnswer
- */
-function handleButtonClick(event, correctAnswer) {
-    let selectedButton = event.target;
-    let userAnswer = selectedButton.getAttribute("data-value");
 
-    // Check if the user's answer is correct
-    if (userAnswer === correctAnswer) {
-        correctAnswers++;
-        selectedButton.classList.add("button-green");
-    } else {
-        wrongAnswers++;
-        selectedButton.classList.add("button-red");
 
-        // Find and highlight the button with the correct answer
-        const correctButton = findCorrectButton(correctAnswer);
-        if (correctButton) {
-            correctButton.classList.add("button-green");
-        }
-    }
 
-    // Disable all buttons
-    disableButtons();
 
-    // Proceed to the next question after a brief delay
-    setTimeout(() => {
-        showNextQuestion(document.getElementById("username").value, document.getElementById("difficulty").value);
-    }, 1200); // Add a timer for the user to see the wrong and correct answer.
-}
 
 /**
- * Find the button with the correct answer
- * @param {*} correctAnswer
- * @returns {HTMLElement|null}
+ * Starts the game
+ * @param {string} difficulty - The selected difficulty level.
+ * @param {string} username - The entered username.
+ * @returns {boolean}
  */
-function findCorrectButton(correctAnswer) {
-    const answerButtons = document.querySelectorAll(".button");
-    for (const button of answerButtons) {
-        if (button.getAttribute("data-value") === correctAnswer) {
-            return button;
-        }
-    }
-    return null;
+async function startGame(difficulty, username) {
+    // Check if the username is valid
+    if (!checkUsername(username)) return;
+
+    showGame();
+    hideStartGameWrapper();
+    hideHowToPlay();
+
+    showNextQuestion(username, difficulty);
 }
+
+
+
+
+
+
 
 
 
