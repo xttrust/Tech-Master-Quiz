@@ -258,7 +258,6 @@ The footer will be as simple as a text "For educational purposes only".
 - While testing the game widouth internet the game will trow an alert that api data was not loaded and the game will restart after 1 second.
 - While testing the game, I have found an error where if you start a game and then go back and start the game again fast the api data will not fetch because of the limitations of ``opentdb.com/api`` works, So the game will trow an alert that api data was not loaded and the game will restart after 1 second.
 
-- While testing the code I didn't encounter any errors with the final project. Only on JSHint a few warnings.
 - HTML (index.html) validator [results](wireframes/html-validator.png "W3C HTML")
 - CSS validator [results](wireframes/css-validator.png "W3C CSS")
 - JSHint [results](wireframes/js-validator.png "JSHint")
