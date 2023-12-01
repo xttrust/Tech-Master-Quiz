@@ -306,18 +306,13 @@ const showNextQuestion = (username, difficulty) => {
     }
 }
 
-
-
-
-
-
 /**
  * Starts the game
  * @param {string} difficulty - The selected difficulty level.
  * @param {string} username - The entered username.
  * @returns {boolean}
  */
-async function startGame(difficulty, username) {
+const startGame = async (difficulty, username) => {
     // Check if the username is valid
     if (!checkUsername(username)) return;
 
@@ -326,17 +321,7 @@ async function startGame(difficulty, username) {
     hideHowToPlay();
 
     showNextQuestion(username, difficulty);
-}
-
-
-
-
-
-
-
-
-
-
+};
 
 
 // Wait for the document to be loaded
@@ -376,14 +361,3 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
 });
-
-
-
-
-
-
-
-
-
-
-
