@@ -1,5 +1,8 @@
 const btnStart = document.querySelector("#start");
 const gameContentWrapper = document.querySelector("#game-content-wrapper");
+const howToPlayButtonToggle = document.querySelector("#howToPlayButtonToggle");
+const howToPlayList = document.querySelector("#how-to-play-list");
+const buttonIcon = document.querySelector(".close-button i.fa-solid");
 let currentQuestion = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
@@ -7,6 +10,7 @@ let quizData;
 
 // Wait for the document to be loaded
 document.addEventListener("DOMContentLoaded", function () {
+
     // Add event listener for the start button click
     btnStart.addEventListener("click", async function (event) {
         event.preventDefault();
@@ -22,7 +26,28 @@ document.addEventListener("DOMContentLoaded", function () {
             handleFetchError(error);
         }
     });
+
+    // Add even listener for the how to play button
+    howToPlayButtonToggle.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        howToPlayList.classList.toggle("hidden");
+
+        buttonIcon = document.querySelector(".close-button i.fa-solid");
+        if (howToPlayList.classList.contains("hidden")) {
+            // Container is hidden, change the icon to plus
+            buttonIcon.classList.remove("fa-minus");
+            buttonIcon.classList.add("fa-plus");
+        } else {
+            // Container is visible, change the icon to minus
+            buttonIcon.classList.remove("fa-plus");
+            buttonIcon.classList.add("fa-minus");
+        }
+    })
+
 });
+
+
 
 /**
  * Starts the game
@@ -242,7 +267,7 @@ function checkUsername(username) {
  * Hide the start game section
  */
 function hideStartGameWrapper() {
-    let startGameWrapper = document.getElementById("start-game-wrapper");
+    let startGameWrapper = document.querySelector("#start-game-wrapper");
     startGameWrapper.classList.add("hidden");
 }
 
@@ -250,7 +275,7 @@ function hideStartGameWrapper() {
  * Hide the how to play section
  */
 function hideHowToPlay() {
-    let howToPlayWrapper = document.getElementById("how-to-play");
+    let howToPlayWrapper = document.querySelector("#how-to-play");
     howToPlayWrapper.classList.add("hidden");
 }
 
@@ -258,7 +283,7 @@ function hideHowToPlay() {
  * Display the game wrapper
  */
 function showGame() {
-    let gameWrapper = document.getElementById("game-content-wrapper");
+    let gameWrapper = document.querySelector("#game-content-wrapper");
     gameWrapper.style.display = "block";
 }
 
@@ -268,11 +293,11 @@ function showGame() {
  */
 function displayScore(username) {
     // Hide the game wrapper
-    let gameWrapper = document.getElementById("game-content-wrapper");
+    let gameWrapper = document.querySelector("#game-content-wrapper");
     gameWrapper.classList.add("hidden");
 
     // Show the score wrapper
-    let scoreWrapper = document.getElementById("score-wrapper");
+    let scoreWrapper = document.querySelector("#score-wrapper");
     scoreWrapper.classList.remove("hidden");
     scoreWrapper.classList.add("show");
 
@@ -285,7 +310,7 @@ function displayScore(username) {
  * @param {string} username - The username of the player.
  */
 function displayScoreMessage(username) {
-    let scoreMessage = document.getElementById("score-message");
+    let scoreMessage = document.querySelector("#score-message");
     let startMessage = "";
 
     if (correctAnswers < 5) {
@@ -340,21 +365,4 @@ function disableButtons() {
     });
 }
 
-/**
- * Toggle the how to play list visibility
- */
-function toggleHowToPlayList() {
-    let howToPlayList = document.getElementById("how-to-play-list");
-    howToPlayList.classList.toggle("hidden");
 
-    let buttonIcon = document.querySelector(".close-button i.fa-solid");
-    if (howToPlayList.classList.contains("hidden")) {
-        // Container is hidden, change the icon to plus
-        buttonIcon.classList.remove("fa-minus");
-        buttonIcon.classList.add("fa-plus");
-    } else {
-        // Container is visible, change the icon to minus
-        buttonIcon.classList.remove("fa-plus");
-        buttonIcon.classList.add("fa-minus");
-    }
-}
