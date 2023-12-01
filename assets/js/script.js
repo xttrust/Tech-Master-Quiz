@@ -7,6 +7,7 @@ const startGameWrapperRef = document.querySelector("#start-game-wrapper");
 const howToPlayWrapperRef = document.querySelector("#how-to-play");
 const gameWrapperRef = document.querySelector("#game-content-wrapper");
 const scoreMessageRef = document.querySelector("#score-message");
+const scoreWrapperRef = document.querySelector("#score-wrapper");
 
 let currentQuestion = 0;
 let correctAnswers = 0;
@@ -112,6 +113,18 @@ const displayScoreMessage = (username) => {
 }
 
 
+/**
+ * Display the score
+ * @param {string} username - The username of the player.
+ */
+const displayScore = (username) => {
+    gameWrapperRef.classList.add("hidden");
+
+    scoreWrapperRef.classList.remove("hidden");
+    scoreWrapperRef.classList.add("show");
+
+    displayScoreMessage(username);
+}
 
 
 
@@ -374,23 +387,6 @@ function shuffleArray(array) {
 }
 
 
-/**
- * Display the score
- * @param {string} username - The username of the player.
- */
-function displayScore(username) {
-    // Hide the game wrapper
-    let gameWrapper = document.querySelector("#game-content-wrapper");
-    gameWrapper.classList.add("hidden");
-
-    // Show the score wrapper
-    let scoreWrapper = document.querySelector("#score-wrapper");
-    scoreWrapper.classList.remove("hidden");
-    scoreWrapper.classList.add("show");
-
-    // Display the score message
-    displayScoreMessage(username);
-}
 
 
 
