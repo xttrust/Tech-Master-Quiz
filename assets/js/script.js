@@ -262,6 +262,8 @@ const handleButtonClick = (event, correctAnswer) => {
  */
 const showNextQuestion = (username, difficulty) => {
     // Check if there are more questions to display
+    !quizData && handleFetchError();
+
     if (currentQuestion < quizData.length) {
         // Get data for the current question
         let question = getFinalData(quizData[currentQuestion]);
