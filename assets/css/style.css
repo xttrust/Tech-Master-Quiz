@@ -145,22 +145,15 @@ select {
     background-color: var(--clr-blue);
 }
 
-.button-red {
-    background-color: var(--clr-red);
-}
-
+.button-red,
 .button-red:hover {
     background-color: var(--clr-red);
 }
 
-.button-green {
-    background-color: var(--clr-green);
-}
-
+.button-green,
 .button-green:hover {
     background-color: var(--clr-green);
 }
-
 
 .d-block {
     width: 100%;
