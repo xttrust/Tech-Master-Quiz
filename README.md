@@ -226,13 +226,6 @@ The footer will be as simple as a text "For educational purposes only".
 
 [Back to Top](#table-of-contents)
 
-## Technologies used
-
-- **HTML**
-- **CSS**
-- **JS**
-- **API**
-
 ### Languages
 
 - [HTML](https://en.wikipedia.org/wiki/HTML "HTML")
