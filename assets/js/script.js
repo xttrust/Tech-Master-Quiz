@@ -1,7 +1,7 @@
 const btnStartRef = document.querySelector("#start");
-const gameContentWrapper = document.querySelector("#game-content-wrapper");
-const howToPlayButtonToggle = document.querySelector("#howToPlayButtonToggle");
-const howToPlayList = document.querySelector("#how-to-play-list");
+const gameContentWrapperRef = document.querySelector("#game-content-wrapper");
+const howToPlayButtonToggleRef = document.querySelector("#howToPlayButtonToggle");
+const howToPlayListRef = document.querySelector("#how-to-play-list");
 const buttonIconRef = document.querySelector(".close-button i.fa-solid");
 const startGameWrapperRef = document.querySelector("#start-game-wrapper");
 const howToPlayWrapperRef = document.querySelector("#how-to-play");
@@ -74,7 +74,6 @@ const disableButtons = () => {
     });
 };
 
-
 /**
  * Display the final score messages and a button to reset the game
  * @param {string} username - The username of the player.
@@ -118,6 +117,11 @@ const displayScoreMessage = (username) => {
 
 
 
+
+
+
+
+
 // Wait for the document to be loaded
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -138,12 +142,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Add even listener for the how to play button
-    howToPlayButtonToggle.addEventListener("click", (event) => {
+    howToPlayButtonToggleRef.addEventListener("click", (event) => {
         event.preventDefault();
 
-        howToPlayList.classList.toggle("hidden");
+        howToPlayListRef.classList.toggle("hidden");
 
-        if (howToPlayList.classList.contains("hidden")) {
+        if (howToPlayListRef.classList.contains("hidden")) {
             // Container is hidden, change the icon to plus
             buttonIconRef.classList.remove("fa-minus");
             buttonIconRef.classList.add("fa-plus");
@@ -199,7 +203,7 @@ function showNextQuestion(username, difficulty) {
         let question = getFinalData(quizData[currentQuestion]);
 
         // Clear previous content
-        gameContentWrapper.innerHTML = "";
+        gameContentWrapperRef.innerHTML = "";
 
         // Display welcome message
         createWelcomeMessage(username, difficulty);
@@ -207,12 +211,12 @@ function showNextQuestion(username, difficulty) {
         // Display progress text
         let progressText = document.createElement("p");
         progressText.innerHTML = `Question ${currentQuestion + 1} out of ${quizData.length}`;
-        gameContentWrapper.appendChild(progressText);
+        gameContentWrapperRef.appendChild(progressText);
 
         // Display the question
         let questionText = document.createElement("p");
         questionText.innerHTML = `<strong>${question.question}</strong>`;
-        gameContentWrapper.appendChild(questionText);
+        gameContentWrapperRef.appendChild(questionText);
 
         // Display answer options as buttons
         for (let i = 0; i < question.incorrectAnswers.length; i++) {
@@ -228,7 +232,7 @@ function showNextQuestion(username, difficulty) {
                 handleButtonClick(event, question.correctAnswer);
             });
 
-            gameContentWrapper.appendChild(answerOption);
+            gameContentWrapperRef.appendChild(answerOption);
         }
 
         currentQuestion++;
