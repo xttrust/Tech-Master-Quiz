@@ -49,6 +49,30 @@ const showGame = () => {
     gameWrapperRef.style.display = "block";
 };
 
+/**
+ * Reset all values to 0 and reload the page
+ */
+const resetGame = () => {
+    // Reset variables
+    currentQuestion = 0;
+    correctAnswers = 0;
+    wrongAnswers = 0;
+
+    // Reload the page to start a new game
+    location.reload();
+};
+
+/**
+ * Disable all buttons
+ */
+const disableButtons = () => {
+    // const answerButtons is needed here when the function is called.
+    const answerButtons = document.querySelectorAll(".button");
+    answerButtons.forEach(button => {
+        button.disabled = true;
+    });
+};
+
 
 
 
@@ -308,7 +332,6 @@ function shuffleArray(array) {
 }
 
 
-
 /**
  * Display the score
  * @param {string} username - The username of the player.
@@ -364,27 +387,6 @@ function displayScoreMessage(username) {
     scoreMessage.appendChild(playAgainButton);
 }
 
-/**
- * Reset all values to 0 and reload the page
- */
-function resetGame() {
-    // Reset variables
-    currentQuestion = 0;
-    correctAnswers = 0;
-    wrongAnswers = 0;
 
-    // Reload the page to start a new game
-    location.reload();
-}
-
-/**
- * Disable all buttons
- */
-function disableButtons() {
-    const answerButtons = document.querySelectorAll(".button");
-    answerButtons.forEach(button => {
-        button.disabled = true;
-    });
-}
 
 
