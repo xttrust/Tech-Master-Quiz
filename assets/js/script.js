@@ -137,6 +137,39 @@ const fetchData = async (difficulty) => {
     return data.results;
 };
 
+/**
+ * Will handle the fetch API error
+ * @param {*} error
+ */
+const handleFetchError = (error) => {
+    alert("Error while loading API data, the game will restart.");
+
+    setTimeout(() => {
+        location.reload();
+    }, 1000);
+}
+
+/**
+ * Shuffle an array
+ * @param {Array} array - The array to be shuffled.
+ * @returns {Array} - The shuffled array.
+ * @see https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+ */
+const shuffleArray = (array) => {
+    let currentIndex = array.length, randomIndex;
+
+    while (currentIndex > 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]
+        ];
+    }
+
+    return array;
+}
+
 
 
 
@@ -330,17 +363,7 @@ function createWelcomeMessage(username, difficulty) {
 
 
 
-/**
- * Will handle the fetch API error
- * @param {*} error
- */
-function handleFetchError(error) {
-    alert("Error while loading API data, the game will restart.");
 
-    setTimeout(() => {
-        location.reload();
-    }, 1000);
-}
 
 /**
  * This function combines the correct answer with the incorrect answers,
@@ -366,26 +389,7 @@ function getFinalData(array) {
     return result;
 }
 
-/**
- * Shuffle an array
- * @param {Array} array - The array to be shuffled.
- * @returns {Array} - The shuffled array.
- * @see https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
- */
-function shuffleArray(array) {
-    let currentIndex = array.length, randomIndex;
 
-    while (currentIndex > 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-
-        [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]
-        ];
-    }
-
-    return array;
-}
 
 
 
