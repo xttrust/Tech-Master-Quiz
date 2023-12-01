@@ -8,6 +8,8 @@ const howToPlayWrapperRef = document.querySelector("#how-to-play");
 const gameWrapperRef = document.querySelector("#game-content-wrapper");
 const scoreMessageRef = document.querySelector("#score-message");
 const scoreWrapperRef = document.querySelector("#score-wrapper");
+const welcomeMessageWrapperRef = document.querySelector("#welcome-message-wrapper");
+const welcomeMessageRef = document.querySelector("#game-welcome-message");
 
 let currentQuestion = 0;
 let correctAnswers = 0;
@@ -170,57 +172,40 @@ const shuffleArray = (array) => {
     return array;
 }
 
+/**
+ * This function combines the correct answer with the incorrect answers,
+ * shuffles the combined array, and creates a new object with the shuffled answers.
+ * @param {Object} array - The input data containing correct and incorrect answers.
+ * @returns {Object} - An object with the correct answer, shuffled incorrect answers, and the question.
+ */
+const getFinalData = (array) => {
+    // Copy the incorrect_answers array to avoid modifying the original
+    let incorrectAnswersCopy = array.incorrect_answers.slice();
 
+    incorrectAnswersCopy.push(array.correct_answer);
 
+    // Shuffle the combined array
+    let shuffledAnswers = shuffleArray(incorrectAnswersCopy);
 
+    let result = {
+        correctAnswer: array.correct_answer,
+        incorrectAnswers: shuffledAnswers,
+        question: array.question
+    };
 
+    return result;
+}
 
-
-
-
-
-// Wait for the document to be loaded
-document.addEventListener("DOMContentLoaded", function () {
-
-    // Add event listener for the start button click
-    btnStartRef.addEventListener("click", async function (event) {
-        event.preventDefault();
-        // Get the selected difficulty and username from the input fields
-        const difficulty = document.querySelector("#difficulty").value;
-        const username = document.querySelector("#username").value;
-        try {
-            // Fetch quiz data and start the game
-            quizData = await fetchData(difficulty);
-            startGame(difficulty, username);
-        } catch (error) {
-            // Handle fetch error
-            handleFetchError(error);
-        }
-    });
-
-    // Add even listener for the how to play button
-    howToPlayButtonToggleRef.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        howToPlayListRef.classList.toggle("hidden");
-
-        if (howToPlayListRef.classList.contains("hidden")) {
-            // Container is hidden, change the icon to plus
-            buttonIconRef.classList.remove("fa-minus");
-            buttonIconRef.classList.add("fa-plus");
-        } else {
-            // Container is visible, change the icon to minus
-            buttonIconRef.classList.remove("fa-plus");
-            buttonIconRef.classList.add("fa-minus");
-        }
-    })
-
-});
-
-
-
-
-
+/**
+ * Updates the welcome message based on username and difficulty
+ * @param {string} username
+ * @param {string} difficulty
+ */
+const createWelcomeMessage = (username, difficulty) => {
+    welcomeMessageWrapperRef.classList.remove("hidden");
+    welcomeMessageWrapperRef.classList.add("show");
+    welcomeMessageRef.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun!`;
+}
 
 
 
@@ -347,47 +332,49 @@ function findCorrectButton(correctAnswer) {
     return null;
 }
 
-/**
- * Updates the welcome message based on username and difficulty
- * @param {string} username
- * @param {string} difficulty
- */
-function createWelcomeMessage(username, difficulty) {
-    let welcomeMessageWrapper = document.querySelector("#welcome-message-wrapper");
-    welcomeMessageWrapper.classList.remove("hidden");
-    welcomeMessageWrapper.classList.add("show");
-
-    let welcomeMessage = document.querySelector("#game-welcome-message");
-    welcomeMessage.innerHTML = `Welcome <strong>${username}</strong>, selected difficulty: <strong>${difficulty}</strong>. Have fun!`;
-}
 
 
 
 
 
-/**
- * This function combines the correct answer with the incorrect answers,
- * shuffles the combined array, and creates a new object with the shuffled answers.
- * @param {Object} array - The input data containing correct and incorrect answers.
- * @returns {Object} - An object with the correct answer, shuffled incorrect answers, and the question.
- */
-function getFinalData(array) {
-    // Copy the incorrect_answers array to avoid modifying the original
-    let incorrectAnswersCopy = array.incorrect_answers.slice();
+// Wait for the document to be loaded
+document.addEventListener("DOMContentLoaded", function () {
 
-    incorrectAnswersCopy.push(array.correct_answer);
+    // Add event listener for the start button click
+    btnStartRef.addEventListener("click", async function (event) {
+        event.preventDefault();
+        // Get the selected difficulty and username from the input fields
+        const difficulty = document.querySelector("#difficulty").value;
+        const username = document.querySelector("#username").value;
+        try {
+            // Fetch quiz data and start the game
+            quizData = await fetchData(difficulty);
+            startGame(difficulty, username);
+        } catch (error) {
+            // Handle fetch error
+            handleFetchError(error);
+        }
+    });
 
-    // Shuffle the combined array
-    let shuffledAnswers = shuffleArray(incorrectAnswersCopy);
+    // Add even listener for the how to play button
+    howToPlayButtonToggleRef.addEventListener("click", (event) => {
+        event.preventDefault();
 
-    let result = {
-        correctAnswer: array.correct_answer,
-        incorrectAnswers: shuffledAnswers,
-        question: array.question
-    };
+        howToPlayListRef.classList.toggle("hidden");
 
-    return result;
-}
+        if (howToPlayListRef.classList.contains("hidden")) {
+            // Container is hidden, change the icon to plus
+            buttonIconRef.classList.remove("fa-minus");
+            buttonIconRef.classList.add("fa-plus");
+        } else {
+            // Container is visible, change the icon to minus
+            buttonIconRef.classList.remove("fa-plus");
+            buttonIconRef.classList.add("fa-minus");
+        }
+    })
+
+});
+
 
 
 
