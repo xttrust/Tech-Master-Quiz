@@ -33,6 +33,11 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
   - [Languages](#languages)
   - [Tools](#tools)
 - [Testing](#testing)
+  - [Functionality Tests](#functionality-tests)
+  - [Error Handling Tests](#error-handling-tests)
+  - [Responsive Design Tests](#responsive-design-tests)
+  - [Performance Tests](#performance-tests)
+  - [General Tests](#general-tests)
   - [Bugs](#bugs)
   - [Fixed Bugs](#fixed-bugs)
   - [Unfixed Bugs](#unfixed-bugs)
@@ -262,6 +267,46 @@ The footer will be as simple as a text "For educational purposes only".
 - CSS validator [results](wireframes/css-validator.png "W3C CSS")
 - JSHint [results](wireframes/js-validator.png "JSHint")
 
+### Functionality Tests
+
+| Test Case | Description | Expected Result |
+|-----------|-------------|-----------------|
+| 1         | Start the game with a valid username and difficulty level. | Game starts, and the first question is displayed. |
+| 2         | Start the game with an empty username. | Alert message displays: "Please enter a username." |
+| 3         | Answer a question correctly. | Correct answer highlighted, and the next question is displayed. |
+| 4         | Answer a question incorrectly. | Incorrect answer highlighted, correct answer highlighted, and the next question is displayed. |
+| 5         | Complete the quiz. | Final score message displays with correct and incorrect answer counts. |
+| 6         | Click on the "Play Again" button after completing the quiz. | Game restarts, and the first question is displayed. |
+
+### Error Handling Tests
+
+| Test Case | Description | Expected Result |
+|-----------|-------------|-----------------|
+| 1         | Simulate a fetch API error during game start. | Alert message displays: "Error while loading API data, the game will restart." |
+| 2         | Simulate a fetch API error during a question fetch. | Alert message displays: "Error while loading API data, the game will restart." |
+
+### Responsive Design Tests
+
+| Test Case | Description | Expected Result |
+|-----------|-------------|-----------------|
+| 1         | Test the game on various devices (desktop, tablet, mobile). | Game displays correctly with a user-friendly layout on all devices. |
+
+### Performance Tests
+
+| Test Case | Description | Expected Result |
+|-----------|-------------|-----------------|
+| 1         | Use Google Lighthouse for performance testing. | High performance scores for mobile and desktop versions. |
+
+### General Tests
+
+| Test Case | Description | Expected Result |
+|-----------|-------------|-----------------|
+| 1         | Click on the "How to Play" button. | How to play section toggles visibility. |
+| 2         | Click on the "How to Play" button multiple times. | How to play section toggles visibility correctly. |
+| 3         | Start the game without selecting a difficulty level. | Fetches quiz data with the default difficulty level. |
+| 4         | Reset the game after completing it. | Game resets, and the start page is displayed. |
+| 5         | Test the game on various browsers. | Game functions correctly on major web browsers. |
+
 - The final project was tested using Google's Lighthouse on github pages. The results are below
 - Performance test for Mobile:
 
@@ -281,10 +326,9 @@ The footer will be as simple as a text "For educational purposes only".
 
 ## Bugs
 
-- While creating the game I encountered an issue with the asynchronous behavior of the game. This behavior occurs only the first time a user visits the site and has no browser data saved. I've implemented error handling to catch the issue. In such cases, users will receive an alert notifying them that the API data failed to load.
-
 ## Fixed Bugs
 
+- While creating the game I encountered an issue with the asynchronous behavior of the game. This behavior occurs only the first time a user visits the site and has no browser data saved. I've implemented error handling to catch the issue. In such cases, users will receive an alert notifying them that the API data failed to load.
 - After many hours of research and youtube tutorials I have rewriten the code and fixed all errors.
 
 ## Unfixed Bugs
