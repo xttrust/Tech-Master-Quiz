@@ -360,6 +360,6 @@ document.addEventListener("DOMContentLoaded", function () {
             buttonIconRef.classList.remove("fa-plus");
             buttonIconRef.classList.add("fa-minus");
         }
-    })
+    });
 
 });
