@@ -148,7 +148,7 @@ The website will follow a mobile-first strategy, the main target is to create a 
 
 ## Wireframes
 
-For wireframing to vissually structuire and play the layout and design of the website I have selected [Balsamic](https://balsamiq.com/wireframes/ "Balsamic"). aiming to provide a user-friendly experience and maintain design consistency across different devices.
+Wireframes were created using [Balsamic](https://balsamiq.com/wireframes/ "Balsamic") for visual structuring and layout planning, maintaining design consistency across devices.
 
 The wireframes are below:
 
