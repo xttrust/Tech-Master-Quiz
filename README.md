@@ -65,10 +65,10 @@ TechMasterQuiz is designed for individuals eager to test their computer knowledg
 
 ### User Stories
 
-- As a learner, I want to have access to a variety of quizzes covering different topics in technology, so that I can expand my knowledge in specific areas of interest.
-- As a quiz enthusiast, I want to easily sign in with my username.
+- As a user, I want to have access to a variety of quizzes covering different topics in technology, so that I can expand my knowledge in specific areas of interest.
+- As a user, I want to easily sign in with my username.
 - As a user looking for a quick break, I want to be able to start a short quiz without having to go through a lengthy sign-up process, so that I can enjoy a quick and fun diversion.
-- As a casual user, I want the quiz platform to have a visually appealing and user-friendly design, so that I can navigate through the questions easily and enjoy a pleasant experience.
+- As a user, I want the quiz platform to have a visually appealing and user-friendly design, so that I can navigate through the questions easily and enjoy a pleasant experience.
 
 [Back to Top](#table-of-contents)
 
